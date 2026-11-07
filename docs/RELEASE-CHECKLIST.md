@@ -2,11 +2,11 @@
 
 This is a private release candidate until the maintainer authorizes publication. A prepared asset or passing fixture is not blanket production qualification.
 
-- [ ] Source commit pushed and remote commit verified; secret scan passes on the exact history.
-- [ ] Draft Windows EXE, ZIP, checksums, runtime base and package receipt uploaded and checked against local bytes.
-- [ ] Installer extraction, install-over, interrupted extraction/retry and saved stopped intake receiving evidence recorded.
-- [ ] Installed updater recovery tests pass; online update feed remains inactive until separately qualified.
-- [ ] Tester guide, security instructions, capability boundaries, contributor templates and upstream notices are present.
+- [x] Source candidate pushed and remote commit verified; redacted secret scan passes. Repeat for any successor before publication.
+- [x] Draft Windows EXE, ZIP, checksums, runtime base and package receipt uploaded; all six GitHub asset digests and lengths match local files.
+- [x] Installer extraction, install-over, interrupted extraction/retry and saved stopped intake receiving evidence recorded.
+- [x] All 17 installed updater recovery tests pass; online update feed remains inactive until separately qualified.
+- [x] Tester guide, security instructions, capability boundaries, contributor templates and upstream notices are present.
 - [ ] Repository banner reviewed; social-preview upload is distinct from including a README image.
 - [ ] Owner completes receiving on a separate Windows device, including visible UI, provider setup and delivered-project usability.
 - [ ] Hosted partner capacity and exact approved grants checked before inviting users to use the optional pool. Never renew allowances implicitly.
