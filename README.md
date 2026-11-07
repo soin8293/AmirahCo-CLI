@@ -1,8 +1,12 @@
 # AmirahCo CLI
 
-An AI coding assistant for planning projects, working with files and building from your terminal. Based on [OpenClaude](https://github.com/Gitlawb/openclaude), with an emerald interface and bundled project-planning and code-quality skills.
+![AmirahCo CLI — AI coding and agent orchestration](assets/github/repository-hero.png)
+
+An AI coding CLI centered on agent orchestration: plan a project, carry its context into coding, coordinate agents and check results from your terminal. Based on [OpenClaude](https://github.com/Gitlawb/openclaude), with an emerald interface and bundled project-planning and code-quality skills.
 
 **Release status:** Windows prototype. Bring your own supported provider API key. Optional partner-backed evaluation access is limited and manually approved. This repository is a release candidate; no unlimited credits or guaranteed hands-free completion are offered.
+
+[Get started](#windows) · [Tester guide](docs/TESTER-GUIDE.md) · [Capabilities](docs/CAPABILITIES.md) · [Report a bug](https://github.com/soin8293/AmirahCo-CLI/issues/new/choose) · [License scope](LICENSE-SCOPE.md)
 
 ## Windows
 
@@ -20,7 +24,7 @@ Open AmirahCo CLI and configure your provider using its native setup. You may st
 
 ## Source setup
 
-Use native Node.js 22+ and Bun with the checked-in lockfile:
+Use the qualified native Node.js 24.22.1 and Bun 1.4.4 with the checked-in lockfile:
 
 ```sh
 bun install --frozen-lockfile

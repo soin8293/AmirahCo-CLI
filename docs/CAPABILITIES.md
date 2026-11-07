@@ -9,6 +9,6 @@
 | Quality repairs and executive decisions | Scoped approved fixes and current work instructions | No blanket automatic quality-repair loop or permission bypass |
 | Completion | Evidence-based refusal guards exist | Owner acceptance and independent review cannot be authored by the worker |
 | Hosted tester keys | Account/manual approval, revoke/replacement and boundary fixtures; prior bounded text/SSE/tool-call probes | Pool is paused with consumed staging caps; no new allowance is implied |
-| Windows installer and updater | r5 install-over, interrupted extraction/retry, saved stopped intake, 17 installed-engine recovery cases | Unsigned; live signed update feed inactive; complete production/fresh-device upgrade unqualified |
+| Windows installer and updater | r6 native 1.0.1 install-over, interrupted extraction/retry, exact saved stopped intake reopen, approved icon/shortcut bindings and 17 installed-engine recovery cases | Unsigned; live signed update feed inactive; complete production/fresh-device upgrade unqualified |
 
 The product goal is low-intervention application building from a reviewed brief. A successful task or simulation does not guarantee hands-free delivery of every application. Real project evidence, current criteria, performed checks, current permissions and remaining budgets govern completion.

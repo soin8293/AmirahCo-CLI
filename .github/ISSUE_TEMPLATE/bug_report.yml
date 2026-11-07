@@ -1,0 +1,31 @@
+name: Bug report
+description: Report a reproducible prototype issue without private data.
+body:
+  - type: markdown
+    attributes:
+      value: Never include keys, tokens, login links, private projects or full profiles/databases. Use SECURITY.md for sensitive reports.
+  - type: input
+    id: version
+    attributes:
+      label: App and Windows versions
+      placeholder: AmirahCo CLI version; Windows version; x64
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include the selected workflow or skill, using synthetic inputs.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: recovery
+    attributes:
+      label: Recovery and redacted evidence
+      description: Did reopening preserve the same session, Stop state and unfinished work?

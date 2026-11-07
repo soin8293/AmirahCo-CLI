@@ -67,5 +67,5 @@ try {
 } finally {$zip.Dispose()}
 $artifacts=@($exe,$archive) | ForEach-Object {[pscustomobject]@{name=[IO.Path]::GetFileName($_);bytes=(Get-Item -LiteralPath $_).Length;sha256=(Get-FileHash -LiteralPath $_ -Algorithm SHA256).Hash.ToLowerInvariant()}}
 $artifacts | ForEach-Object {$_.sha256+'  '+$_.name} | Set-Content -LiteralPath (Join-Path $output 'SHA256SUMS.txt') -Encoding ASCII
-@{version=$package.version;sequence=$policy.sequence;directory=$version;files=$artifacts;payloadSha256=$payloadHash;runtimeBaseSha256=$base.sha256;stage=$stage;published=$false;feedConfigured=($null -ne $policy.feed)} | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath (Join-Path $output 'package-receipt.json') -Encoding UTF8
+@{version=$package.version;sequence=$policy.sequence;directory=$version;files=$artifacts;payloadSha256=$payloadHash;runtimeBaseSha256=$base.sha256;published=$false;feedConfigured=($null -ne $policy.feed)} | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath (Join-Path $output 'package-receipt.json') -Encoding UTF8
 Write-Output ('Prepared unpublished candidate: '+$exe)
