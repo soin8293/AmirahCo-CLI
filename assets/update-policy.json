@@ -1,0 +1,9 @@
+{
+  "product": "amirahco-cli",
+  "platform": "windows-x64",
+  "channel": "pilot",
+  "sequence": 6,
+  "stateSchema": 1,
+  "feed": null,
+  "keys": []
+}

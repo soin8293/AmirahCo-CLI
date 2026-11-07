@@ -1,0 +1,6 @@
+{
+  "file": "AmirahCoCLI-Pilot-1.0.0-r5-Windows-x64.zip",
+  "sha256": "c10b95aa2bd198c196dbd839f0be4e471055618b026243ea26fe8e3640ba6e5c",
+  "payloadSha256": "96f8541f496dd6c5bcf58be222103cbb6ee82e7c95af00f3b340d6c2a1bcbdd7",
+  "purpose": "Verified Node/Python/Git runtime base; supplied separately as a release asset. No provider keys or personal state."
+}

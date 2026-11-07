@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+// Compatibility entrypoint for existing local launchers.
+await import('./amirahcocli');

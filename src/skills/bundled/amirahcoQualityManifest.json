@@ -1,0 +1,9 @@
+{
+  "pack": "amirahco-quality@1.0.0",
+  "bodyHashes": {
+    "amirahco-code-quality": "e6ce469c5fccae888875d16acdf628f798f94afaed4ed631ab623747197854fe",
+    "amirahco-typescript-quality": "214658168daf68dfe9ca4339e2bba8eec1dffcdcaabc5997fc5527399801c15e",
+    "amirahco-maintainability-review": "27605e1e27b215ec8c8f4143235ffe0d9714508a7f2816864ea83cdcafd8cc6a"
+  },
+  "resourceSetSha256": "31ef0ae5fdcb1504330c244de43ed03298f3e8c494963d16d62a903b492d05dc"
+}

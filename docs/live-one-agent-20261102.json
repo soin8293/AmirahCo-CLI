@@ -1,0 +1,266 @@
+{
+  "schema": "amirahco.live-one-agent-receipt.v1",
+  "observed_at": "2026-11-02T13:03:38.8906664Z",
+  "source_checkpoint": "880dd4bff05cb70bcd580a23cfec0b132bb8a49c",
+  "live_runtime_checkpoint": "385f166; preserved native process, not hot-reloaded for closing-fence repair",
+  "project_id": "7ae7811b-a8b8-448f-9a26-f4c156b39f31",
+  "native_session_id": "f7bcf422-6acb-4efd-860e-932ef7fd958f",
+  "foundry_run_id": "ae069a09-2356-4587-82d2-5dc2196d99ae",
+  "selected_total": 1,
+  "prd_revision": 2,
+  "status": "receiving_gate_held",
+  "observed_steps": {
+    "prd": "Generated, revised, reopened and approved exact revision 2 through the native UI.",
+    "delivery": "Native Node task-list fixture; ten native tests and eight independent checks pass.",
+    "build": "Visible Build dispatched the existing native lead without an activation chat message.",
+    "intake": "Real AI questions and saved answers exercised; the current fully specified fixture also received a valid zero-question batch."
+  },
+  "checks": {
+    "continuation_native_query_loop": {
+      "scope": "Fixture model/tool; compatibility marker and closed final fence, not live reload acceptance",
+      "result": "pass",
+      "tests": 2
+    },
+    "command_and_skill": {
+      "result": "pass",
+      "tests": 8
+    },
+    "existing_continuation_regressions": {
+      "result": "pass",
+      "tests": 9
+    },
+    "typescript": "pass",
+    "startup_context": {
+      "result": "pass",
+      "tests": 13
+    },
+    "cli_sdk_build": "pass",
+    "native_storage": {
+      "result": "pass",
+      "tests": 32
+    },
+    "continuation_unit": {
+      "result": "pass",
+      "tests": 2
+    }
+  },
+  "integrated_readback": {
+    "ready": false,
+    "blockers": [
+      "missing current owner/required acceptance",
+      "Foundry run is ready at review",
+      "pending ASKs remain"
+    ],
+    "app": {
+      "projectId": "7ae7811b-a8b8-448f-9a26-f4c156b39f31",
+      "ready": false,
+      "blockingCriteria": [
+        "7d985d2f-14e3-4cec-a531-1898e17df14c@2",
+        "c180214d-f7d4-43c4-b199-c2ae4aefa17b@2",
+        "b6f8a662-bcb4-4314-9425-c8d4243c67a9@2",
+        "452df04a-2228-4047-8c68-eaa987e72874@2",
+        "948b369b-47d4-4167-83b4-fd30c0336324@2",
+        "642024c6-3f0f-43bf-ac18-1ca6f3702c34@2",
+        "c0ad6f19-f88e-43cd-b6e5-93cbce0db4ee@2"
+      ],
+      "satisfiedCriteria": [
+        "7d985d2f-14e3-4cec-a531-1898e17df14c@2",
+        "c180214d-f7d4-43c4-b199-c2ae4aefa17b@2",
+        "b6f8a662-bcb4-4314-9425-c8d4243c67a9@2",
+        "452df04a-2228-4047-8c68-eaa987e72874@2",
+        "948b369b-47d4-4167-83b4-fd30c0336324@2",
+        "642024c6-3f0f-43bf-ac18-1ca6f3702c34@2",
+        "c0ad6f19-f88e-43cd-b6e5-93cbce0db4ee@2"
+      ],
+      "blockers": [
+        "missing current owner/required acceptance"
+      ],
+      "artifactIds": [
+        "6d5f72cb-5bb4-45ed-8b94-b6a9b2e96d2f",
+        "6dee8606-4180-4b76-9370-c415a72e4c5a",
+        "f3b58c2e-29d3-57d9-993d-b32dbaf6ed36",
+        "6d7787dd-910a-5948-8865-a4fe16e2c314",
+        "87ebdc0b-90ab-53ee-971d-52d3deb17e2b"
+      ],
+      "artifacts": [
+        {
+          "artifact_id": "6d5f72cb-5bb4-45ed-8b94-b6a9b2e96d2f",
+          "relative_locator": "tasks.js",
+          "byte_length": 2177,
+          "sha256": "929ead8a20e2102850e1cdaee72379291c7de45af7bde04ac754f71ca9db366a"
+        },
+        {
+          "artifact_id": "6dee8606-4180-4b76-9370-c415a72e4c5a",
+          "relative_locator": "test/tasks.test.js",
+          "byte_length": 6298,
+          "sha256": "99cac5bdce951c93db98c7fe8f7c1fc0f703ec3f83a773e667fd0818426b1e90"
+        },
+        {
+          "artifact_id": "f3b58c2e-29d3-57d9-993d-b32dbaf6ed36",
+          "relative_locator": "README.md",
+          "byte_length": 490,
+          "sha256": "f2a756bf1c8e85ae6cc72f604a9c79ac48977bba9f578c46dc365f36c8dc33cf"
+        },
+        {
+          "artifact_id": "6d7787dd-910a-5948-8865-a4fe16e2c314",
+          "relative_locator": "driver-delivery-receipt.json",
+          "byte_length": 1631,
+          "sha256": "1aae989444f87d379595e78b8c2a89e00601e32b38d2782f3d10765a0f9e269d"
+        },
+        {
+          "artifact_id": "87ebdc0b-90ab-53ee-971d-52d3deb17e2b",
+          "relative_locator": "test.output",
+          "byte_length": 1850,
+          "sha256": "64d3808705cce305fd01bf4bc7ea08eed16a37547e7fbd593bc5d91010235d12"
+        }
+      ],
+      "checkIds": [
+        "60bb0639-f30d-56d6-b133-85ea339b12f3",
+        "e34666c7-2ed5-5edd-888f-f8a71120610d",
+        "6fad7c96-13bb-5ab1-85ff-ab2e3f3f6999",
+        "e9e8c9b3-0066-55c1-bf8d-57331d053b85",
+        "54e701c2-f2a3-5e68-a9a4-3316cf2d3924",
+        "aa123235-f911-500a-b92f-eeb4b20c5770",
+        "62af1c20-7364-5f68-81db-46fbf8cb09e4"
+      ],
+      "reviewId": "56bdd1ae-6324-557b-978c-e01aa763d572"
+    },
+    "foundry": {
+      "revision": 13,
+      "status": "ready",
+      "current_node": "review",
+      "created_at": "2026-11-02T03:22:35.445321-07:00",
+      "definition_digest": "6ad87cb92eb2436dd9df67669fb3a29e6eef3a7afae3e049730c83e9eef0e0d8",
+      "run_id": "ae069a09-2356-4587-82d2-5dc2196d99ae",
+      "step_count": 8,
+      "terminal_outcome": null,
+      "updated_at": "2026-11-02T05:44:06.492662-07:00"
+    },
+    "coordination": {
+      "control": null,
+      "events": [
+        {
+          "kind": "RESULT",
+          "sequence": 1,
+          "body": {
+            "native_session_id": "f7bcf422-6acb-4efd-860e-932ef7fd958f",
+            "prd_revision": 2,
+            "project_id": "7ae7811b-a8b8-448f-9a26-f4c156b39f31",
+            "self_review": "56bdd1ae-6324-557b-978c-e01aa763d572",
+            "summary": "Five artifacts and seven performed criteria saved. Native recovery test: 10 passed. Assisted handoff; no owner or independent acceptance.",
+            "work_result": {
+              "artifact_refs": [
+                "6d5f72cb-5bb4-45ed-8b94-b6a9b2e96d2f",
+                "6dee8606-4180-4b76-9370-c415a72e4c5a",
+                "f3b58c2e-29d3-57d9-993d-b32dbaf6ed36",
+                "6d7787dd-910a-5948-8865-a4fe16e2c314",
+                "87ebdc0b-90ab-53ee-971d-52d3deb17e2b"
+              ],
+              "check_refs": [
+                "60bb0639-f30d-56d6-b133-85ea339b12f3",
+                "e34666c7-2ed5-5edd-888f-f8a71120610d",
+                "6fad7c96-13bb-5ab1-85ff-ab2e3f3f6999",
+                "e9e8c9b3-0066-55c1-bf8d-57331d053b85",
+                "54e701c2-f2a3-5e68-a9a4-3316cf2d3924",
+                "aa123235-f911-500a-b92f-eeb4b20c5770",
+                "62af1c20-7364-5f68-81db-46fbf8cb09e4"
+              ],
+              "requirement_refs": [
+                "8e4d375d-1e44-4a81-899c-66705dff91ad@2",
+                "d8ab386d-d2fd-4cd0-8bdf-c466e7ef8c29@2",
+                "4dd63e7a-5991-497c-b4f9-67fd0e90eb50@2",
+                "522d4470-9fcb-49c9-9f85-83d814dcde5c@2",
+                "22ff4756-1cdf-44e9-9685-839e3cf336b5@2"
+              ],
+              "result_ref": "56bdd1ae-6324-557b-978c-e01aa763d572",
+              "task_ref": "foundry-run:ae069a09-2356-4587-82d2-5dc2196d99ae:work@12"
+            }
+          },
+          "body_sha256": "6904502ed08d3691967febbc778a517b12767dd3673755ccf741d4d92d34e841",
+          "created_at": "2026-11-02T05:52:40.997537-07:00",
+          "event_id": "4d52801b-9674-49fd-9e5b-c269ff84914f",
+          "logical_id": "ae069a09-2356-4587-82d2-5dc2196d99ae:work-result:prd-2",
+          "producer": "f7bcf422-6acb-4efd-860e-932ef7fd958f",
+          "recipient": "owner",
+          "run_id": "ae069a09-2356-4587-82d2-5dc2196d99ae",
+          "schema": "amirahco.board-event.v1"
+        },
+        {
+          "kind": "ASK",
+          "sequence": 2,
+          "body": {
+            "artifact_ids": [
+              "6d5f72cb-5bb4-45ed-8b94-b6a9b2e96d2f",
+              "6dee8606-4180-4b76-9370-c415a72e4c5a",
+              "f3b58c2e-29d3-57d9-993d-b32dbaf6ed36",
+              "6d7787dd-910a-5948-8865-a4fe16e2c314",
+              "87ebdc0b-90ab-53ee-971d-52d3deb17e2b"
+            ],
+            "correlation_id": "ae069a09-2356-4587-82d2-5dc2196d99ae:owner-acceptance:prd-2",
+            "prd_revision": 2,
+            "project_id": "7ae7811b-a8b8-448f-9a26-f4c156b39f31",
+            "question": "Please review the delivered local task-list CLI and accept it or request changes. Final owner acceptance is not recorded."
+          },
+          "body_sha256": "8bc2fb56001331e21a4c26f8bd55c08a794dbbb4d5a38ef88c21c4cde1781044",
+          "created_at": "2026-11-02T05:52:50.836557-07:00",
+          "event_id": "c1f5eae7-7b51-467b-8da1-a9ad66821bfe",
+          "logical_id": "ae069a09-2356-4587-82d2-5dc2196d99ae:owner-acceptance:prd-2",
+          "producer": "f7bcf422-6acb-4efd-860e-932ef7fd958f",
+          "recipient": "owner",
+          "run_id": "ae069a09-2356-4587-82d2-5dc2196d99ae",
+          "schema": "amirahco.board-event.v1"
+        }
+      ],
+      "attempts": [
+        {
+          "state": "observed",
+          "action_key": "ae069a09-2356-4587-82d2-5dc2196d99ae:work-result:prd-2:append",
+          "attempt_id": "52e9162c-c633-4164-8df4-d40acd3761bb",
+          "effect_kind": "board_append",
+          "observation_json": "{\"body_sha256\":\"6904502ed08d3691967febbc778a517b12767dd3673755ccf741d4d92d34e841\",\"event_id\":\"4d52801b-9674-49fd-9e5b-c269ff84914f\",\"logical_id\":\"ae069a09-2356-4587-82d2-5dc2196d99ae:work-result:prd-2\"}",
+          "observed_at": "2026-11-02T05:53:53.183462-07:00",
+          "original_action_identity": "ae069a09-2356-4587-82d2-5dc2196d99ae:work-result:prd-2",
+          "payload_json": "{\"body\":{\"native_session_id\":\"f7bcf422-6acb-4efd-860e-932ef7fd958f\",\"prd_revision\":2,\"project_id\":\"7ae7811b-a8b8-448f-9a26-f4c156b39f31\",\"self_review\":\"56bdd1ae-6324-557b-978c-e01aa763d572\",\"summary\":\"Five artifacts and seven performed criteria saved. Native recovery test: 10 passed. Assisted handoff; no owner or independent acceptance.\",\"work_result\":{\"artifact_refs\":[\"6d5f72cb-5bb4-45ed-8b94-b6a9b2e96d2f\",\"6dee8606-4180-4b76-9370-c415a72e4c5a\",\"f3b58c2e-29d3-57d9-993d-b32dbaf6ed36\",\"6d7787dd-910a-5948-8865-a4fe16e2c314\",\"87ebdc0b-90ab-53ee-971d-52d3deb17e2b\"],\"check_refs\":[\"60bb0639-f30d-56d6-b133-85ea339b12f3\",\"e34666c7-2ed5-5edd-888f-f8a71120610d\",\"6fad7c96-13bb-5ab1-85ff-ab2e3f3f6999\",\"e9e8c9b3-0066-55c1-bf8d-57331d053b85\",\"54e701c2-f2a3-5e68-a9a4-3316cf2d3924\",\"aa123235-f911-500a-b92f-eeb4b20c5770\",\"62af1c20-7364-5f68-81db-46fbf8cb09e4\"],\"requirement_refs\":[\"8e4d375d-1e44-4a81-899c-66705dff91ad@2\",\"d8ab386d-d2fd-4cd0-8bdf-c466e7ef8c29@2\",\"4dd63e7a-5991-497c-b4f9-67fd0e90eb50@2\",\"522d4470-9fcb-49c9-9f85-83d814dcde5c@2\",\"22ff4756-1cdf-44e9-9685-839e3cf336b5@2\"],\"result_ref\":\"56bdd1ae-6324-557b-978c-e01aa763d572\",\"task_ref\":\"foundry-run:ae069a09-2356-4587-82d2-5dc2196d99ae:work@12\"}},\"kind\":\"RESULT\",\"logical_id\":\"ae069a09-2356-4587-82d2-5dc2196d99ae:work-result:prd-2\",\"producer\":\"f7bcf422-6acb-4efd-860e-932ef7fd958f\",\"recipient\":\"owner\",\"run_id\":\"ae069a09-2356-4587-82d2-5dc2196d99ae\",\"schema\":\"amirahco.board-event.v1\"}",
+          "payload_sha256": "d2eebc32b7de175484e197e023eb7b2a3f38255dbc28e8f6953cc02607de8f1c",
+          "reserved_at": "2026-11-02T05:52:36.191495-07:00",
+          "run_id": "ae069a09-2356-4587-82d2-5dc2196d99ae"
+        },
+        {
+          "state": "observed",
+          "action_key": "ae069a09-2356-4587-82d2-5dc2196d99ae:owner-acceptance:prd-2:append",
+          "attempt_id": "c8110d45-1756-4ff0-bc93-b578d47b0987",
+          "effect_kind": "board_append",
+          "observation_json": "{\"body_sha256\":\"8bc2fb56001331e21a4c26f8bd55c08a794dbbb4d5a38ef88c21c4cde1781044\",\"event_id\":\"c1f5eae7-7b51-467b-8da1-a9ad66821bfe\",\"logical_id\":\"ae069a09-2356-4587-82d2-5dc2196d99ae:owner-acceptance:prd-2\"}",
+          "observed_at": "2026-11-02T05:54:04.10149-07:00",
+          "original_action_identity": "ae069a09-2356-4587-82d2-5dc2196d99ae:owner-acceptance:prd-2",
+          "payload_json": "{\"body\":{\"artifact_ids\":[\"6d5f72cb-5bb4-45ed-8b94-b6a9b2e96d2f\",\"6dee8606-4180-4b76-9370-c415a72e4c5a\",\"f3b58c2e-29d3-57d9-993d-b32dbaf6ed36\",\"6d7787dd-910a-5948-8865-a4fe16e2c314\",\"87ebdc0b-90ab-53ee-971d-52d3deb17e2b\"],\"correlation_id\":\"ae069a09-2356-4587-82d2-5dc2196d99ae:owner-acceptance:prd-2\",\"prd_revision\":2,\"project_id\":\"7ae7811b-a8b8-448f-9a26-f4c156b39f31\",\"question\":\"Please review the delivered local task-list CLI and accept it or request changes. Final owner acceptance is not recorded.\"},\"kind\":\"ASK\",\"logical_id\":\"ae069a09-2356-4587-82d2-5dc2196d99ae:owner-acceptance:prd-2\",\"producer\":\"f7bcf422-6acb-4efd-860e-932ef7fd958f\",\"recipient\":\"owner\",\"run_id\":\"ae069a09-2356-4587-82d2-5dc2196d99ae\",\"schema\":\"amirahco.board-event.v1\"}",
+          "payload_sha256": "e700c1d12157f1d12e0100ab0356923566dcb82483681ff98790f59dc32d3622",
+          "reserved_at": "2026-11-02T05:52:47.019956-07:00",
+          "run_id": "ae069a09-2356-4587-82d2-5dc2196d99ae"
+        }
+      ],
+      "claims": [],
+      "schedules": [],
+      "route": null
+    }
+  },
+  "owner_acceptance": "not performed",
+  "validation_retries": [
+    "Concurrent build/typecheck hit ENOMEM; typecheck passed, build rerun sequentially",
+    "Direct Bun invocation compiled CLI/SDK but child validation lacked Bun on PATH; full build rerun with the installed tool directory on PATH"
+  ],
+  "operator_interventions": [
+    "Restored missing bridge and retired route alias",
+    "Denied raw SQL; repaired handoff entrypoints",
+    "Required exact approved JSON list output",
+    "Guided native test repair and disposable isolation",
+    "Corrected invalid record UUIDs and unrelated hashes",
+    "Corrected operator confusion between intake revision and commit receipt",
+    "Continued after a compatibility-only provider reply",
+    "Restored existing router data-path visibility and resumed the same saved native session",
+    "Corrected artifact path objects to the declared string schema before submission",
+    "Directed expired work-lease reconciliation after confirming the prior process was absent"
+  ],
+  "workflow_handoff": "Driver prepared the engine work-submission manifest from app-owned requirement/artifact/check readback after intercepting placeholder and empty-reference proposals. Native performed and journaled the actual recovery test. Final acceptance is still owner-only.",
+  "qualification": "Intervention-assisted walkthrough. Does not close unattended full-loop, team, recovery or whole-product Done/Q qualifications."
+}

@@ -1,0 +1,254 @@
+{
+  "schema_version": "workflow_foundry_v0",
+  "workflow_id": "amirahco_project_lifecycle",
+  "definition_version": "1.0.0",
+  "objective": "Move one source-linked project from current context through discovery, clarification, reviewed PRD, explicit activation, scoped work and evidence-bound review without treating activity as completion.",
+  "entry": "context",
+  "terminal_nodes": ["complete", "stopped", "blocked"],
+  "policies": {
+    "max_steps": 64,
+    "worker_protocol_required": false
+  },
+  "contracts": {
+    "context_packet": {
+      "required_fields": ["project_id", "native_session_id", "context_revision", "control_state", "skill_profile"],
+      "field_types": {
+        "project_id": "string",
+        "native_session_id": "string",
+        "context_revision": "string",
+        "control_state": "string",
+        "skill_profile": "string"
+      },
+      "evidence_kinds": []
+    },
+    "discovery_packet": {
+      "required_fields": ["source_refs", "confirmed_facts", "open_questions", "scope_boundaries"],
+      "field_types": {
+        "source_refs": "array",
+        "confirmed_facts": "array",
+        "open_questions": "array",
+        "scope_boundaries": "array"
+      },
+      "evidence_kinds": []
+    },
+    "clarification_packet": {
+      "required_fields": ["requirement_revision", "answers", "remaining_material_gaps"],
+      "field_types": {
+        "requirement_revision": "string",
+        "answers": "array",
+        "remaining_material_gaps": "array"
+      },
+      "evidence_kinds": []
+    },
+    "prd_packet": {
+      "required_fields": ["prd_revision", "markdown_path", "record_receipt", "open_blockers"],
+      "field_types": {
+        "prd_revision": "string",
+        "markdown_path": "string",
+        "record_receipt": "string",
+        "open_blockers": "array"
+      },
+      "evidence_kinds": []
+    },
+    "work_result": {
+      "required_fields": ["task_ref", "requirement_refs", "artifact_refs", "check_refs", "result_ref"],
+      "field_types": {
+        "task_ref": "string",
+        "requirement_refs": "array",
+        "artifact_refs": "array",
+        "check_refs": "array",
+        "result_ref": "string"
+      },
+      "evidence_kinds": []
+    },
+    "review_result": {
+      "required_fields": ["reviewer_ref", "criteria_revision", "artifact_refs", "evidence_refs", "verdict", "findings"],
+      "field_types": {
+        "reviewer_ref": "string",
+        "criteria_revision": "string",
+        "artifact_refs": "array",
+        "evidence_refs": "array",
+        "verdict": "string",
+        "findings": "array"
+      },
+      "evidence_kinds": []
+    },
+    "repair_result": {
+      "required_fields": ["repair_ref", "affected_criteria", "artifact_refs", "check_refs"],
+      "field_types": {
+        "repair_ref": "string",
+        "affected_criteria": "array",
+        "artifact_refs": "array",
+        "check_refs": "array"
+      },
+      "evidence_kinds": []
+    }
+  },
+  "nodes": [
+    {
+      "id": "context",
+      "kind": "activity",
+      "instructions": "Load the exact project/session, current control state, source-linked context and required skill profile. Missing required current context holds the run.",
+      "output_contract": "context_packet",
+      "executor": {
+        "allowed_actions": ["read", "context_check"],
+        "forbidden_actions": ["model_build", "write_source", "publish"],
+        "required_actions": ["context_check"],
+        "required_capabilities": ["amirahco-context"],
+        "risk_tags": ["stale_context", "wrong_project", "stop_bypass"],
+        "independent_from": []
+      },
+      "routes": {"success": "discovery", "error": "blocked"}
+    },
+    {
+      "id": "discovery",
+      "kind": "activity",
+      "instructions": "Reuse supplied sources and answers, then produce a bounded discovery packet with confirmed facts, scope boundaries and consequential open questions.",
+      "output_contract": "discovery_packet",
+      "executor": {
+        "allowed_actions": ["read", "ask", "record_candidate"],
+        "forbidden_actions": ["approve", "activate", "build"],
+        "required_actions": ["read", "record_candidate"],
+        "required_capabilities": ["amirahco-discovery"],
+        "risk_tags": ["invented_context", "question_sprawl"],
+        "independent_from": []
+      },
+      "routes": {"success": "clarify_gate", "error": "blocked"}
+    },
+    {
+      "id": "clarify_gate",
+      "kind": "decision",
+      "instructions": "Decide whether material ambiguity remains. True means clarification is required; false means the current inputs are sufficient for a PRD candidate.",
+      "executor": {
+        "allowed_actions": ["read", "analyze"],
+        "forbidden_actions": ["write_source", "approve", "build"],
+        "required_actions": ["analyze"],
+        "required_capabilities": ["amirahco-clarify"],
+        "risk_tags": ["hidden_ambiguity"],
+        "independent_from": []
+      },
+      "routes": {"true": "clarify", "false": "prd", "unknown": "clarify", "error": "blocked"}
+    },
+    {
+      "id": "clarify",
+      "kind": "activity",
+      "instructions": "Resolve only material ambiguity through the owning writer and preserve accepted answers and remaining gaps in a new requirement revision.",
+      "output_contract": "clarification_packet",
+      "executor": {
+        "allowed_actions": ["read", "ask", "record_candidate"],
+        "forbidden_actions": ["approve", "activate", "build"],
+        "required_actions": ["ask", "record_candidate"],
+        "required_capabilities": ["amirahco-clarify"],
+        "risk_tags": ["guessed_decision", "lost_answer"],
+        "independent_from": []
+      },
+      "routes": {"success": "prd", "error": "blocked"}
+    },
+    {
+      "id": "prd",
+      "kind": "activity",
+      "instructions": "Create a matching structured PRD candidate and Markdown projection with stable IDs, source links, acceptance criteria and visible blockers.",
+      "output_contract": "prd_packet",
+      "executor": {
+        "allowed_actions": ["read", "record_candidate", "render"],
+        "forbidden_actions": ["raw_sql", "approve", "activate", "build"],
+        "required_actions": ["record_candidate", "render"],
+        "required_capabilities": ["amirahco-prd"],
+        "risk_tags": ["projection_drift", "false_approval"],
+        "independent_from": []
+      },
+      "routes": {"success": "prd_review", "error": "blocked"}
+    },
+    {
+      "id": "prd_review",
+      "kind": "external_wait",
+      "wait": {
+        "event_type": "prd.approved",
+        "correlation_key": "current-prd",
+        "requires_actor": true,
+        "required_evidence": ["approved_prd_revision"]
+      },
+      "routes": {"success": "activation", "expired": "stopped", "error": "blocked"}
+    },
+    {
+      "id": "activation",
+      "kind": "decision",
+      "instructions": "Check an explicit current activation for the exact approved PRD revision. Approval alone is not activation.",
+      "executor": {
+        "allowed_actions": ["read", "control_check"],
+        "forbidden_actions": ["build", "dispatch"],
+        "required_actions": ["control_check"],
+        "required_capabilities": ["native_control"],
+        "risk_tags": ["approval_activation_confusion", "stop_bypass"],
+        "independent_from": []
+      },
+      "routes": {"true": "admission", "false": "stopped", "unknown": "blocked", "error": "blocked"}
+    },
+    {
+      "id": "admission",
+      "kind": "decision",
+      "instructions": "Recheck current Stop, scope, context, claim, tool, provider and permission state at the final action boundary.",
+      "executor": {
+        "allowed_actions": ["read", "control_check", "permission_check"],
+        "forbidden_actions": ["build", "dispatch"],
+        "required_actions": ["control_check", "permission_check"],
+        "required_capabilities": ["native_admission"],
+        "risk_tags": ["stale_permission", "duplicate_dispatch", "stop_bypass"],
+        "independent_from": []
+      },
+      "max_visits": 10,
+      "routes": {"true": "work", "false": "stopped", "unknown": "blocked", "error": "blocked"}
+    },
+    {
+      "id": "work",
+      "kind": "agent",
+      "instructions": "Perform one eligible scoped task and return actual artifact and check references. Preserve a separate ASK when blocked.",
+      "output_contract": "work_result",
+      "executor": {
+        "allowed_actions": ["read", "write", "test"],
+        "forbidden_actions": ["publish", "email", "purchase", "scope_change"],
+        "required_actions": ["test"],
+        "required_capabilities": ["amirahco-work"],
+        "risk_tags": ["scope_escape", "uncertain_effect", "false_completion"],
+        "independent_from": []
+      },
+      "max_visits": 8,
+      "routes": {"success": "review", "error": "blocked"}
+    },
+    {
+      "id": "review",
+      "kind": "validation",
+      "instructions": "Review the exact current artifacts against the exact criteria revision with attributable evidence and a plausible wrong-result probe.",
+      "output_contract": "review_result",
+      "executor": {
+        "allowed_actions": ["read", "test", "review"],
+        "forbidden_actions": ["edit", "publish", "approve_scope"],
+        "required_actions": ["test", "review"],
+        "required_capabilities": ["amirahco-review"],
+        "risk_tags": ["stale_evidence", "fake_independence", "superficial_check"],
+        "independent_from": ["work"]
+      },
+      "max_visits": 8,
+      "routes": {"pass": "complete", "fail": "repair", "error": "blocked"}
+    },
+    {
+      "id": "repair",
+      "kind": "activity",
+      "instructions": "Repair only the failed criteria within current scope, retain failure evidence and return updated artifacts and checks.",
+      "output_contract": "repair_result",
+      "executor": {
+        "allowed_actions": ["read", "write", "test"],
+        "forbidden_actions": ["publish", "scope_change"],
+        "required_actions": ["write", "test"],
+        "required_capabilities": ["amirahco-work"],
+        "risk_tags": ["scope_expansion", "erased_failure"],
+        "independent_from": []
+      },
+      "max_visits": 6,
+      "routes": {"success": "admission", "error": "blocked"}
+    },
+    {"id": "complete", "kind": "terminal", "outcome": "complete"},
+    {"id": "stopped", "kind": "terminal", "outcome": "stopped"},
+    {"id": "blocked", "kind": "terminal", "outcome": "blocked"}
+  ]
+}
