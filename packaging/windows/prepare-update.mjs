@@ -12,7 +12,14 @@ const here = dirname(fileURLToPath(import.meta.url))
 export async function prepareUpdate(config) {
   const current=read(config.currentPolicy)
   const key=current.keys?.find(key=>key.id===config.keyId)
-  const privateKey=createPrivateKey(readFileSync(config.privateKey))
+  let keyBytes
+  if(config.privateKeyDpapi) {
+    const opened=spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-File',join(here,'read-signing-key.ps1'),'-ProtectedKey',resolve(config.privateKeyDpapi)],{windowsHide:true,timeout:30000})
+    if(opened.error || opened.status!==0) throw new Error('The protected signing key could not be opened by this Windows account.')
+    keyBytes=opened.stdout
+  }else keyBytes=readFileSync(config.privateKey)
+  let privateKey
+  try {privateKey=createPrivateKey(keyBytes)} finally {keyBytes.fill(0)}
   if(!key || privateKey.asymmetricKeyType!=='ed25519' || createPublicKey(privateKey).export({format:'pem',type:'spki'})!==createPublicKey(key.publicKey).export({format:'pem',type:'spki'})) throw new Error('Signing key does not match the installed trust policy.')
   const bytes=statSync(config.archive).size
   if(bytes<=0 || bytes>600*1024**2) throw new Error('Archive exceeds the update size limit.')

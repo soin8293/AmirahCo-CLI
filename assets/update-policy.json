@@ -2,8 +2,13 @@
   "product": "amirahco-cli",
   "platform": "windows-x64",
   "channel": "pilot",
-  "sequence": 6,
+  "sequence": 8,
   "stateSchema": 1,
-  "feed": null,
-  "keys": []
+  "feed": "https://www.amirahco.us/cli-updates/pilot/windows-x64.json",
+  "keys": [
+    {
+      "id": "amirahco-windows-pilot-20261107",
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAS/z1PkjPEhcoHKgD53I1nK5nwHiUAA4cAhOGsK9voNQ=\n-----END PUBLIC KEY-----\n"
+    }
+  ]
 }

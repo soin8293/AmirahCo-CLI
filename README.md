@@ -10,7 +10,7 @@ An AI coding CLI centered on agent orchestration: plan a project, carry its cont
 
 ## Windows
 
-Download the reviewed Windows x64 installer from this repository's release assets when the release is published. Verify its SHA-256 against the accompanying checksums. It installs per user, creates Desktop and Start-menu shortcuts and bundles its native dependencies; WSL is not required. The current installer is unsigned, so Windows may show a trust warning.
+Download the [Windows x64 r8 installer ZIP](https://www.amirahco.us/cli-updates/packages/AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.zip), verify it against the [checksums](https://www.amirahco.us/cli-updates/packages/SHA256SUMS.txt), extract it and run `install.cmd`. It installs per user, creates emerald Desktop and Start-menu shortcuts and bundles its native dependencies; WSL is not required. The installer is unsigned, so Windows may show a trust warning. The standalone EXE remains a separate release asset; this website host distributes the supported ZIP format.
 
 Open AmirahCo CLI and configure your provider using its native setup. You may start a chat, create a project or reopen existing work. Never paste keys into project files, issues, screenshots or shared chats. Your provider's quota, terms and billing apply.
 
@@ -20,9 +20,9 @@ Open AmirahCo CLI and configure your provider using its native setup. You may st
 - Six project skills for context, discovery, clarification, PRD drafting, scoped work and review.
 - Three coding-quality skills adapted from Ponytail, P-Stack and the thermonuclear review, plus /simplify. Invocation uses the native Skill tool and current permissions.
 - A packaged Foundry lifecycle component for reviewed project work and evidence. See [capability status](docs/CAPABILITIES.md) for the implementation and qualification boundaries.
-- A native update picker with Install/Later and next-safe-launch recovery. The hosted update channel is not active in this candidate.
+- A signed Windows update channel with native Install/Later and next-safe-launch recovery.
 
-For future versions, use `/update` once the signed channel is configured, or install the reviewed successor over the current installation. Sessions and unfinished work are preserved. See the [update delivery runbook](docs/UPDATE-RELEASE-RUNBOOK.md) for the maintainer's preparation, signing, publication and recovery checks.
+For future versions, use `/update`, or install the reviewed successor over the current installation. Sessions and unfinished work are preserved. r6 and older builds without update trust need one manual r8 install-over first. See the [update delivery runbook](docs/UPDATE-RELEASE-RUNBOOK.md) for preparation, signing and recovery checks.
 
 ## Source setup
 

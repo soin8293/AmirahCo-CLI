@@ -2,18 +2,20 @@
 
 ## Current status
 
-The native Windows updater is implemented. The r6 candidate has `feed: null` and no trusted keys, so its in-app channel is **inactive**. Release preparation is available locally; no production feed, signing identity or package has been published by this increment.
+November 7, 2026: the r8 installer bundles the public Ed25519 verification key and production feed `https://www.amirahco.us/cli-updates/pilot/windows-x64.json`. Its signed ZIP is served directly from `/cli-updates/packages/` on the same origin. The prior r6 candidate has `feed: null` and no trusted keys and needs one manual r8 install-over. r7 is the isolated receiving predecessor, not a public tester release.
+
+The existing Firebase Spark plan rejected a standalone EXE preview before publication. The fresh ZIP-only candidate preserves all 149 pre-existing hosted file hashes and existing sign-in/configuration. Its ZIP is the original supported installer/update format, not a renamed executable; extract and run `install.cmd`. The EXE is rebuilt locally for separate distribution. No billing upgrade, provider/router change or allowance renewal was performed. Full physical receiving on another Windows computer remains separate.
 
 Before distributing the first update-enabled installer, provision a stable direct HTTPS origin and an Ed25519 signing identity, then bundle **only the public key and feed URL** in `assets/update-policy.json`. Keep the private signing key outside Git, app packages and the website, with restricted access and a recoverable protected backup. A signed update manifest is separate from Windows Authenticode signing of the installer.
 
-Suggested layout, pending deployment approval:
+Active layout:
 
 ```text
 https://www.amirahco.us/cli-updates/pilot/windows-x64.json
 https://www.amirahco.us/cli-updates/packages/<immutable-release>.zip
 ```
 
-These are proposed paths, not live endpoints. Both must serve bytes directly from the same origin, without redirects, account cookies or an HTML fallback. GitHub remains the source, release notes and manual installer download location. Its redirected release-asset URLs cannot be used as this updater's package transport. Never distribute a private repository token to clients.
+Both serve bytes directly from the same origin, without redirects, account cookies or an HTML fallback. GitHub remains the source and a separate release location; its redirected release-asset URLs cannot be used as this updater's package transport. Never distribute a private repository token to clients. A scoped Hosting version can atomically expose the already-uploaded package and its feed together; subsequent feed-only releases must retain prior immutable package paths.
 
 ## Prepare each release
 
@@ -23,11 +25,11 @@ These are proposed paths, not live endpoints. Both must serve bytes directly fro
 
 ```json
 {
-  "archive": "C:/release/candidate/AmirahCoCLI-Pilot-1.0.2-r7-Windows-x64.zip",
+  "archive": "C:/release/candidate/AmirahCoCLI-Pilot-1.0.2-r9-Windows-x64.zip",
   "currentPolicy": "C:/release/last-shipped/update-policy.json",
   "privateKey": "C:/private-release-signing/ed25519.pem",
   "keyId": "REPLACE_WITH_APPROVED_KEY_ID",
-  "url": "https://YOUR_APPROVED_ORIGIN/cli-updates/packages/1.0.2-r7.zip",
+  "url": "https://YOUR_APPROVED_ORIGIN/cli-updates/packages/1.0.2-r9.zip",
   "notes": "A short user-facing explanation of the tested changes.",
   "expiresAt": "REPLACE_WITH_FUTURE_ISO_TIMESTAMP",
   "output": "C:/release/candidate/windows-x64.json"
@@ -40,6 +42,8 @@ node --test tests/windows-update-release.test.mjs tests/windows-updater.test.mjs
 ```
 
 The tool inspects the nested ZIP layout and package identity, bounds unpacked sizes, hashes the actual archive, signs it, and exercises the shipped verifier offline against the installed trust policy. It refuses unconfigured/mismatched trust, non-increasing sequence, wrong signer, expired offer or another package origin. Existing output is never overwritten. It uploads nothing and generates no production key. It does not replace the installer's per-file verification, code review, real package receiving or another-device acceptance.
+
+The production signer uses `privateKeyDpapi` instead of `privateKey`, pointing to the owner-local protected file. The tool opens it only in a captured child-process pipe and clears the plaintext buffer after importing it. Windows DPAPI CurrentUser and owner/SYSTEM-only directory ACLs protect the stored key; its ciphertext is outside Git, packages and Hosting. Preserve its Windows user/profile recovery material securely: copying the DPAPI file alone to another computer is not a portable signing backup. Do not regenerate an identity over the existing file. A future portable backup or key migration needs a protected, owner-approved recovery procedure.
 
 4. Qualify the exact signed package on an isolated installed Windows copy: offer → Later → approve → close normally → fresh launch → version/shortcuts → reopen the same saved work. Exercise interrupted download/install, offline and invalid-signature rejection. Retain receipts. Do not use an owner's active project as a destructive fault fixture.
 5. After publication approval, upload the immutable ZIP **first**; verify direct HTTPS status, exact size/hash and no redirects. Replace the small signed feed **last**, atomically. Feed metadata should revalidate (`Cache-Control: no-cache`); immutable versioned packages may be cached. Read back exact feed bytes and run an actual installed-client check before announcing availability. Keep the previous installer and evidence available.

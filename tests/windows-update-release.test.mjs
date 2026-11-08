@@ -47,6 +47,12 @@ try {
  assert.equal(manifest.sha256,createHash('sha256').update(readFileSync(config.archive)).digest('hex'))
  assert.equal(manifest.directory,'1.0.2-pilot.7')
  assert.ok(manifest.unpackedBytes>=manifest.bytes)
+ const protectedKey=join(root,'key.dpapi')
+ const protectedResult=spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-Command',"$ErrorActionPreference='Stop';$env:PSModulePath=Join-Path $PSHOME 'Modules';Add-Type -AssemblyName System.Security;$plain=[Text.Encoding]::UTF8.GetBytes([Console]::In.ReadToEnd());[IO.File]::WriteAllBytes($env:AMR_TEST_PROTECTED_KEY,[Security.Cryptography.ProtectedData]::Protect($plain,$null,[Security.Cryptography.DataProtectionScope]::CurrentUser))"],{input:readFileSync(config.privateKey),windowsHide:true,env:{...process.env,AMR_TEST_PROTECTED_KEY:protectedKey}})
+ assert.equal(protectedResult.status,0)
+ const protectedOutput=join(root,'protected-feed.json')
+ await prepareUpdate({...config,privateKeyDpapi:protectedKey,output:protectedOutput})
+ assert.deepEqual(JSON.parse(readFileSync(protectedOutput,'utf8')),envelope)
  await assert.rejects(prepareUpdate(config),/EEXIST/)
  for(const [label,override,expected] of [
   ['cross-origin',{url:'https://other.example.test/r7.zip'},/Untrusted update address/],

@@ -2,7 +2,9 @@
 
 ## Update delivery status — November 7, 2026
 
-The current r6 release candidate retains this updater but has no feed or trust keys. The [maintainer runbook](UPDATE-RELEASE-RUNBOOK.md) and local release preparation tool define the signed update and manual installer paths. All 18 release-signing/updater tests pass. Provision public trust/feed in a fresh bootstrap installer and qualify real HTTPS delivery before claiming automatic updates are active. Nothing is published by this increment.
+The r8 Windows installer now contains the public signing key and active production feed. The signed ZIP and checksums are served directly from `https://www.amirahco.us/cli-updates/`; the [maintainer runbook](UPDATE-RELEASE-RUNBOOK.md) defines subsequent releases and key custody. All 18 release-signing/updater tests pass. Older r6 builds without trust still require one manual r8 install-over. Real HTTPS signature/hash/size checks passed, with all 149 existing website file hashes preserved. Separate-device physical acceptance remains a gate; the historical r5 receiving notes below remain retained evidence.
+
+Actual installed r7 → r8 production receiving also passed: download/approval, real staged-process interruption, original-digest restart recovery, both isolated shortcut switches, native version/current-feed checks and unchanged stopped intake/history/work. The CLI/UI bundle and emerald icon remain byte-identical. This used fixture-only installation and profile paths, without inference or router/grant changes.
 
 ## Historical r5 receiving — native update flow packaged
 

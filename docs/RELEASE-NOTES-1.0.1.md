@@ -4,9 +4,9 @@ An AI coding CLI centered on agent orchestration, with bundled project-planning,
 
 ## Download
 
-- **Most testers:** `AmirahCoCLI-Pilot-1.0.1-r6-Windows-x64.exe` — per-user installer with emerald Desktop and Start-menu icons. Native Windows; WSL is not required.
-- **ZIP alternative:** `AmirahCoCLI-Pilot-1.0.1-r6-Windows-x64.zip` — extract and run `install.cmd`.
-- Verify the chosen file with `SHA256SUMS.txt` before installing. The installer is unsigned.
+- **Current hosted installer:** [AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.zip](https://www.amirahco.us/cli-updates/packages/AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.zip) — extract and run `install.cmd`. Per-user installation creates emerald Desktop and Start-menu shortcuts; WSL is not required.
+- Verify the ZIP with [SHA256SUMS.txt](https://www.amirahco.us/cli-updates/packages/SHA256SUMS.txt) before installing. The installer is unsigned. A standalone r8 EXE is rebuilt separately; the current website plan does not host EXE files.
+- r6 is retained as a prior candidate; its inactive update channel needs one manual r8 install-over. r7 is an isolated receiving predecessor.
 - `AmirahCoCLI-Pilot-1.0.0-r5-Windows-x64.zip` is the pinned **packaging runtime base for contributors**, not the recommended tester version. The source build recipe verifies its exact hash before overlaying current application files.
 
 ## Included
@@ -15,7 +15,7 @@ An AI coding CLI centered on agent orchestration, with bundled project-planning,
 - Saved project intake, personalized questions, PRD generation/review and an explicit Build handoff.
 - Six project skills and three quality skills adapted from Ponytail, P-Stack and the thermonuclear review, plus `/simplify`.
 - Scoped instructions for routine reversible decisions within the approved project, preserving native permissions, Stop and owner-controlled external actions.
-- Native Windows save/reopen and update-recovery support. The online update feed is inactive.
+- Native Windows save/reopen and signed online updates with Install/Later and next-safe-launch recovery.
 
 Bring your own supported provider key. Optional Heabsy/Inferbase pilot access is manually approved, limited, revocable and subject to capacity; installing this app does not issue a key or allowance. Message the maintainer for instructions. Powered by [Heabsy](https://heabsy.com); [Inferbase](https://inferbase.ai) participates in the evaluation pilot.
 
@@ -25,4 +25,4 @@ The release process checks source type/build guards, native UI/skill/team contra
 
 Native teams remain experimental and opt-in. Sustained-load, exact selected-team crash/rollover and universally unattended project completion are not claimed. Automatic quality repairs are not enabled. See [capability boundaries](CAPABILITIES.md), [tester instructions](TESTER-GUIDE.md) and [license scope](../LICENSE-SCOPE.md).
 
-This release remains a draft until public-release receiving and owner publication approval are complete. It does not activate provider pools, renew grants or publish a production update feed.
+The owner authorized the scoped r8 ZIP and signed production feed publication on November 7. That delivery preserves the existing website and account controls. GitHub repository visibility/release publication and remaining broad-release gates stay separate; this does not activate provider pools or renew grants.

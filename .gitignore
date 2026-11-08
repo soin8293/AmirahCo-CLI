@@ -33,6 +33,7 @@ temp_reference/
 *.key
 *.pem
 *.pfx
+*.dpapi
 *.exe
 *.zip
 *.7z
