@@ -4,6 +4,7 @@
 
 | Check | Observed result |
 |---|---|
+| Repository protections | Secret scanning and push protection enabled by GitHub API/readback; scanner-generated synthetic-fixture alert reviewed/resolved as used in tests; open-alert readback empty; seven badge endpoints render correctly. Push-blocking challenge and scan-history completion are not claimed; see [Security](../SECURITY.md#repository-protections) |
 | Clean installation with spaces | Published r8 EXE/ZIP checksums and installer contents match; 30 receiving checks pass across spaced extraction/install/profile/project/shortcut paths, both shortcut command lines, native version/help, icon bindings and install-over with an unchanged unfinished-work sentinel |
 | Public GitHub release | Repository public; r8 is a published prerelease; anonymous EXE/ZIP checks pass and all six asset digests match prepared files |
 | Signed production update | Feed signature, exact bytes, full ZIP size/hash and direct same-origin HTTPS verified |

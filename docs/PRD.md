@@ -1,5 +1,11 @@
 # Public release PRD
 
+## Repository protections and badges — November 7, 2026
+
+GitHub secret scanning and repository push protection are enabled and verified by API readback. A scanner-generated alert for the deterministic `FAKE_LONG_OPAQUE` test fixture was reviewed and resolved as `used_in_tests`, without adding exclusions. Open alerts were empty at readback. This confirms scanning activity and the enabled controls; it does not establish complete historical scan completion or a live-credential push-blocking challenge.
+
+Seven README badges cover the actual pilot release, download count, Windows x64, documentation, both enabled controls and component-license notices. Release/download values are live; the two protection badges record the dated configuration verification documented in [Security](../SECURITY.md#repository-protections). No CI/coverage claim is added while Actions remains disabled. Keep badges aligned with verified state. The installer, published release/tag, signed updater, application UI/state, services and allowances remain unchanged.
+
 ## Public r8 publication — November 7, 2026
 
 The owner explicitly authorized public repository visibility and publishing r8 with the Windows EXE, ZIP and checksums. The repository is public and `v1.0.1-pilot.8` is published as a tester prerelease. Anonymous EXE/ZIP download HEAD checks succeed, public checksum bytes match, and all six server asset digests agree with the preserved prepared artifacts. Earlier source/history/candidates remain; Actions stays disabled, the signed website updater remains active, and no provider/router/account/grant/allowance changes are included. Publication does not close separate-device or broader capability receiving gates.

@@ -1,5 +1,13 @@
 # AmirahCo CLI
 
+[![Pilot release](https://img.shields.io/github/v/release/soin8293/AmirahCo-CLI?include_prereleases&label=pilot&color=059669)](https://github.com/soin8293/AmirahCo-CLI/releases)
+[![Downloads](https://img.shields.io/github/downloads/soin8293/AmirahCo-CLI/total?color=059669)](https://github.com/soin8293/AmirahCo-CLI/releases)
+[![Windows x64](https://img.shields.io/badge/Windows-x64-059669)](docs/quick-start-windows.md)
+[![Documentation](https://img.shields.io/badge/docs-start_here-059669)](docs/README.md)
+[![Secret scanning enabled](https://img.shields.io/badge/secret_scanning-enabled-059669)](SECURITY.md#repository-protections)
+[![Push protection enabled](https://img.shields.io/badge/push_protection-enabled-059669)](SECURITY.md#repository-protections)
+[![Component license notices](https://img.shields.io/badge/license-component_notices-059669)](LICENSE-SCOPE.md)
+
 ![AmirahCo CLI — AI coding and agent orchestration](assets/github/repository-hero.png)
 
 An AI coding CLI centered on agent orchestration: plan a project, carry its context into coding, coordinate agents and check results from your terminal. Based on [OpenClaude](https://github.com/Gitlawb/openclaude), with an emerald interface and bundled project-planning and code-quality skills.
