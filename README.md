@@ -22,6 +22,8 @@ Open AmirahCo CLI and configure your provider using its native setup. You may st
 - A packaged Foundry lifecycle component for reviewed project work and evidence. See [capability status](docs/CAPABILITIES.md) for the implementation and qualification boundaries.
 - A native update picker with Install/Later and next-safe-launch recovery. The hosted update channel is not active in this candidate.
 
+For future versions, use `/update` once the signed channel is configured, or install the reviewed successor over the current installation. Sessions and unfinished work are preserved. See the [update delivery runbook](docs/UPDATE-RELEASE-RUNBOOK.md) for the maintainer's preparation, signing, publication and recovery checks.
+
 ## Source setup
 
 Use the qualified native Node.js 24.22.1 and Bun 1.4.4 with the checked-in lockfile:

@@ -19,3 +19,9 @@ Reuse native sessions/tools/permissions and the existing Foundry lifecycle. Cont
 7. License, signing, complete production upgrade and fresh-device receiving dispositions precede public release.
 
 The maintained private project PRD remains the detailed engineering authority. This public view intentionally excludes private partner correspondence, credentials, account records and infrastructure administration details.
+
+## Update delivery gate — November 7, 2026
+
+Reuse the implemented native notification, explicit Install/Later and safe-launch recovery flow. Each successor needs a monotonic release sequence, inspected package identity/hash, pinned Ed25519 signature, same-origin direct HTTPS package/feed and receiving evidence. Maintainer tooling prepares the signed feed locally; package publication precedes atomic feed publication. Keep a manual installer link for inactive/older clients. See [delivery runbook](UPDATE-RELEASE-RUNBOOK.md).
+
+The first publicly distributed update-enabled installer must already contain the approved feed and public trust key. Current r6 has neither and requires a one-time manual successor installation. Production signing/feed provisioning, complete HTTPS package receiving and fresh-device acceptance remain open. No new channel or release is activated by this amendment. Existing UI, stores, Stop and unfinished work are unchanged.

@@ -1,6 +1,10 @@
 # Windows updates
 
-## Current Windows tester candidate: r5 — native update flow packaged
+## Update delivery status — November 7, 2026
+
+The current r6 release candidate retains this updater but has no feed or trust keys. The [maintainer runbook](UPDATE-RELEASE-RUNBOOK.md) and local release preparation tool define the signed update and manual installer paths. All 18 release-signing/updater tests pass. Provision public trust/feed in a fresh bootstrap installer and qualify real HTTPS delivery before claiming automatic updates are active. Nothing is published by this increment.
+
+## Historical r5 receiving — native update flow packaged
 
 November 7, 2026. The new unpublished r5 EXE/ZIP include the native update picker, verified download/approval and next-safe-launch recovery flow. The emerald installer/shortcut icon and existing native Matrix Elric, logo, globe, information table, scrolling/history, tabs and recovery UI remain. Current artifacts: AmirahCoCLI-Pilot-1.0.0-r5-Windows-x64.exe, matching ZIP and SHA256SUMS-r5.txt under releases/windows-pilot-20261106. r1–r4 remain preserved; r4 is now historical.
 

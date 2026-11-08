@@ -63,7 +63,8 @@ $zip=[IO.Compression.ZipFile]::Open($archive,[IO.Compression.ZipArchiveMode]::Cr
 try {
  foreach($name in @('payload.zip','install.ps1','install.cmd')){[IO.Compression.ZipFileExtensions]::CreateEntryFromFile($zip,(Join-Path $stage $name),$name,[IO.Compression.CompressionLevel]::NoCompression) | Out-Null}
  $entry=$zip.CreateEntry('README.txt');$writer=New-Object IO.StreamWriter($entry.Open())
- try{$writer.Write('AmirahCo CLI Windows prototype. Run install.cmd. Bring your own API key. Optional partner access is manually approved. Unsigned installer; update channel inactive.')}finally{$writer.Dispose()}
+ $updateStatus=if($policy.feed -and $policy.keys.Count -gt 0){'Signed update channel configured; use /update to check.'}else{'Update channel inactive; install a reviewed successor manually.'}
+ try{$writer.Write('AmirahCo CLI Windows prototype. Run install.cmd. Bring your own API key. Optional partner access is manually approved. Unsigned installer. '+$updateStatus)}finally{$writer.Dispose()}
 } finally {$zip.Dispose()}
 $artifacts=@($exe,$archive) | ForEach-Object {[pscustomobject]@{name=[IO.Path]::GetFileName($_);bytes=(Get-Item -LiteralPath $_).Length;sha256=(Get-FileHash -LiteralPath $_ -Algorithm SHA256).Hash.ToLowerInvariant()}}
 $artifacts | ForEach-Object {$_.sha256+'  '+$_.name} | Set-Content -LiteralPath (Join-Path $output 'SHA256SUMS.txt') -Encoding ASCII
