@@ -4,6 +4,7 @@
 
 | Check | Observed result |
 |---|---|
+| Clean installation with spaces | Published r8 EXE/ZIP checksums and installer contents match; 30 receiving checks pass across spaced extraction/install/profile/project/shortcut paths, both shortcut command lines, native version/help, icon bindings and install-over with an unchanged unfinished-work sentinel |
 | Public GitHub release | Repository public; r8 is a published prerelease; anonymous EXE/ZIP checks pass and all six asset digests match prepared files |
 | Signed production update | Feed signature, exact bytes, full ZIP size/hash and direct same-origin HTTPS verified |
 | Actual installed upgrade | Packaged r7 client approved the production r8 download without early installation; actual staged-process crash followed by same-digest restart recovery and both fixture shortcut switches |
@@ -15,6 +16,8 @@
 Run `node --test tests/windows-updater.test.mjs tests/windows-update-release.test.mjs` for the source fixtures. That suite is separate from the recorded real production-package receiving. GitHub Actions remains disabled; these are not claims of a green automated CI run.
 
 The maintainer retains exact release receipts and private fixture paths. Public artifacts and `SHA256SUMS.txt` let you check the released file identities without exposing project stores. The installed recovery test used the same computer and isolated shortcuts, not a fresh Windows device.
+
+Repeat the path test with `tests/windows-clean-install.ps1`, as described in the [Windows packaging guide](../packaging/windows/README.md#clean-installation-with-spaces). A separate native PTY smoke check reached the first-run theme screen and confirmed Down changes the selection in an isolated spaced profile/project directory. This does not qualify the complete authenticated project flow, physical desktop shortcut interaction or a second Windows device. No inference, allowance changes, router changes or package rebuild was needed.
 
 ## Earlier r6 source and package receiving
 

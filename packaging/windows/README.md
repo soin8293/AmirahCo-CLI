@@ -14,6 +14,18 @@ First build the source with the qualified versions in `.node-version` and `.bun-
 
 The runtime base is a separate release asset named `AmirahCoCLI-Pilot-1.0.0-r5-Windows-x64.zip`; its exact outer and payload hashes are pinned in `runtime-base.json`. It supplies the qualified native Node/Python/Git runtimes and notices. The recipe overlays the current built CLI, SDK, scripts and assets, updates the file manifest, and emits EXE/ZIP/checksums. It uses Windows PowerShell, .NET ZIP APIs and the installed .NET Framework C# compiler. It does not fetch credentials or publish anything. Packaging bytes are reproducible inputs; the EXE build itself is not claimed bit-reproducible.
 
-The update channel is deliberately inactive in this candidate. Do not add a production signing secret to Git or enable a feed by copying private machine settings. Independent Windows receiving checks are required before publishing a successor.
+The published r8 package has an active signed update channel. Preserve its public trust policy when preparing a successor; never add the production signing secret to Git or copy private machine settings into a package. Independent Windows receiving checks are required before publishing a successor.
 
-For subsequent versions, follow the [update delivery runbook](../../docs/UPDATE-RELEASE-RUNBOOK.md). `prepare-update.mjs` inspects the actual successor ZIP, signs its identity/hash using an external Ed25519 key, and checks acceptance with the shipped verifier. It writes a new feed file locally and never publishes it. Configure and qualify the feed/public trust key before distributing an update-enabled bootstrap installer.
+For subsequent versions, follow the [update delivery runbook](../../docs/UPDATE-RELEASE-RUNBOOK.md). `prepare-update.mjs` inspects the actual successor ZIP, signs its identity/hash using an external Ed25519 key, and checks acceptance with the shipped verifier. It writes a new feed file locally and never publishes it.
+
+## Clean installation with spaces
+
+Run the receiving script in Windows PowerShell 5.1 with a release directory containing the EXE, ZIP and `SHA256SUMS.txt`, and a previously nonexistent fixture folder:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\tests\windows-clean-install.ps1 -ReleaseDirectory 'C:\Release Packages\r8' -FixtureRoot 'C:\Test Workspaces\AmirahCo Clean Install'
+```
+
+It verifies both package checksums and matching EXE/ZIP installer contents, then exercises clean installation, the native CMD launcher, both actual shortcut commands, emerald icon bindings and install-over. Extraction, installation, project, profile and shortcut paths contain spaces. Owner shortcuts are never selected as destinations. A synthetic unfinished-work file must remain unchanged. The test writes `receiving.json` inside the fixture and preserves all files, including failed attempts. Use a new fixture for every run; do not delete existing user state to retry.
+
+The command checks use Windows process arguments directly rather than passing nested CMD quotes through PowerShell's argument conversion. This is a same-machine fixture; it does not replace a fresh-device interactive installation or provider test.
