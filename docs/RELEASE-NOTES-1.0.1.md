@@ -4,8 +4,9 @@ An AI coding CLI centered on agent orchestration, with bundled project-planning,
 
 ## Download
 
-- **Current hosted installer:** [AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.zip](https://www.amirahco.us/cli-updates/packages/AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.zip) — extract and run `install.cmd`. Per-user installation creates emerald Desktop and Start-menu shortcuts; WSL is not required.
-- Verify the ZIP with [SHA256SUMS.txt](https://www.amirahco.us/cli-updates/packages/SHA256SUMS.txt) before installing. The installer is unsigned. A standalone r8 EXE is rebuilt separately; the current website plan does not host EXE files.
+- **Windows installer:** [AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.exe](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.8/AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.exe) — run the EXE for per-user installation.
+- **ZIP alternative:** [AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.zip](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.8/AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.zip) — extract and run `install.cmd`. Both create emerald Desktop and Start-menu shortcuts; WSL is not required.
+- Verify the chosen file with [SHA256SUMS.txt](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.8/SHA256SUMS.txt) before installing. The installer is unsigned.
 - r6 is retained as a prior candidate; its inactive update channel needs one manual r8 install-over. r7 is an isolated receiving predecessor.
 - `AmirahCoCLI-Pilot-1.0.0-r5-Windows-x64.zip` is the pinned **packaging runtime base for contributors**, not the recommended tester version. The source build recipe verifies its exact hash before overlaying current application files.
 
@@ -25,4 +26,4 @@ The release process checks source type/build guards, native UI/skill/team contra
 
 Native teams remain experimental and opt-in. Sustained-load, exact selected-team crash/rollover and universally unattended project completion are not claimed. Automatic quality repairs are not enabled. See [capability boundaries](CAPABILITIES.md), [tester instructions](TESTER-GUIDE.md) and [license scope](../LICENSE-SCOPE.md).
 
-The owner authorized the scoped r8 ZIP and signed production feed publication on November 7. That delivery preserves the existing website and account controls. GitHub repository visibility/release publication and remaining broad-release gates stay separate; this does not activate provider pools or renew grants.
+The owner authorized public repository visibility and publication of this r8 tester prerelease on November 7. The EXE, ZIP and checksums are downloadable without GitHub sign-in; all six received asset digests match the prepared files. The signed website update channel remains active. Existing source/history, earlier candidates, website/account controls and unfinished work are preserved. No provider pool is activated and no tester allowance is renewed by publication. The separate-device and capability limits above remain applicable.

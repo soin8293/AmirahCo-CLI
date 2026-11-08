@@ -4,13 +4,13 @@
 
 An AI coding CLI centered on agent orchestration: plan a project, carry its context into coding, coordinate agents and check results from your terminal. Based on [OpenClaude](https://github.com/Gitlawb/openclaude), with an emerald interface and bundled project-planning and code-quality skills.
 
-**Release status:** Windows prototype. Bring your own supported provider API key. Optional partner-backed evaluation access is limited and manually approved. This repository is a release candidate; no unlimited credits or guaranteed hands-free completion are offered.
+**Release status:** Public Windows tester prototype, [r8 prerelease](https://github.com/soin8293/AmirahCo-CLI/releases/tag/v1.0.1-pilot.8). Bring your own supported provider API key. Optional partner-backed evaluation access is limited and manually approved; no unlimited credits or guaranteed hands-free completion are offered.
 
 [Get started](#windows) · [Tester guide](docs/TESTER-GUIDE.md) · [Capabilities](docs/CAPABILITIES.md) · [Report a bug](https://github.com/soin8293/AmirahCo-CLI/issues/new/choose) · [License scope](LICENSE-SCOPE.md)
 
 ## Windows
 
-Download the [Windows x64 r8 installer ZIP](https://www.amirahco.us/cli-updates/packages/AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.zip), verify it against the [checksums](https://www.amirahco.us/cli-updates/packages/SHA256SUMS.txt), extract it and run `install.cmd`. It installs per user, creates emerald Desktop and Start-menu shortcuts and bundles its native dependencies; WSL is not required. The installer is unsigned, so Windows may show a trust warning. The standalone EXE remains a separate release asset; this website host distributes the supported ZIP format.
+Download the [Windows x64 installer EXE](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.8/AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.exe) or [ZIP](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.8/AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.zip), and verify it against [SHA256SUMS.txt](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.8/SHA256SUMS.txt). Run the EXE, or extract the ZIP and run `install.cmd`. It installs per user, creates emerald Desktop and Start-menu shortcuts and bundles its native dependencies; WSL is not required. The installer is unsigned, so Windows may show a trust warning.
 
 Open AmirahCo CLI and configure your provider using its native setup. You may start a chat, create a project or reopen existing work. Never paste keys into project files, issues, screenshots or shared chats. Your provider's quota, terms and billing apply.
 

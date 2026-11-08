@@ -1,5 +1,9 @@
 # Public release PRD
 
+## Public r8 publication — November 7, 2026
+
+The owner explicitly authorized public repository visibility and publishing r8 with the Windows EXE, ZIP and checksums. The repository is public and `v1.0.1-pilot.8` is published as a tester prerelease. Anonymous EXE/ZIP download HEAD checks succeed, public checksum bytes match, and all six server asset digests agree with the preserved prepared artifacts. Earlier source/history/candidates remain; Actions stays disabled, the signed website updater remains active, and no provider/router/account/grant/allowance changes are included. Publication does not close separate-device or broader capability receiving gates.
+
 ## User experience
 
 Windows users install and open AmirahCo CLI, configure their own supported provider key, then choose new chat, guided new project or saved work. The logo, globe, info table, scrolling/history and native menus/tabs remain. Guided intake produces context and a reviewable PRD; approval remains separate from Build. Build starts the next eligible work step without another activation message.
