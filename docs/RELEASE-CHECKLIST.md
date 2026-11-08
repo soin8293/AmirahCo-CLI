@@ -1,6 +1,6 @@
 # Public-release receiving checklist
 
-This is a private release candidate until the maintainer authorizes publication. A prepared asset or passing fixture is not blanket production qualification.
+The owner authorized the public r8 tester prerelease on November 7, 2026. Source, EXE, ZIP and checksums are public. This checklist retains the remaining acceptance items; publication and a passing fixture do not establish complete production qualification.
 
 - [x] Source candidate pushed and remote commit verified; redacted secret scan passes. Repeat for any successor before publication.
 - [x] Draft Windows EXE, ZIP, checksums, runtime base and package receipt uploaded; all six GitHub asset digests and lengths match local files.
@@ -11,6 +11,6 @@ This is a private release candidate until the maintainer authorizes publication.
 - [ ] Owner completes receiving on a separate Windows device, including visible UI, provider setup and delivered-project usability.
 - [ ] Hosted partner capacity and exact approved grants checked before inviting users to use the optional pool. Never renew allowances implicitly.
 - [ ] Existing aggregate-license disposition and unsigned-installer status explicitly resolved for the release; do not relabel inherited material.
-- [ ] Owner authorizes public repository visibility and release publication. Neither happens as part of preparation.
+- [x] Owner authorized public repository visibility and r8 prerelease publication; anonymous EXE/ZIP/checksum receiving passed. Earlier candidates remain preserved.
 
 The exact selected-team, crash/rollover and sustained-load end-to-end qualification remains separate. Describe the prototype honestly; do not promise guaranteed hands-free completion.

@@ -6,13 +6,25 @@ An AI coding CLI centered on agent orchestration: plan a project, carry its cont
 
 **Release status:** Public Windows tester prototype, [r8 prerelease](https://github.com/soin8293/AmirahCo-CLI/releases/tag/v1.0.1-pilot.8). Bring your own supported provider API key. Optional partner-backed evaluation access is limited and manually approved; no unlimited credits or guaranteed hands-free completion are offered.
 
-[Get started](#windows) · [Tester guide](docs/TESTER-GUIDE.md) · [Capabilities](docs/CAPABILITIES.md) · [Report a bug](https://github.com/soin8293/AmirahCo-CLI/issues/new/choose) · [License scope](LICENSE-SCOPE.md)
+[Get started](docs/quick-start-windows.md) · [Documentation](docs/README.md) · [Skills and workflows](docs/WORKFLOWS-AND-SKILLS.md) · [Report a bug](https://github.com/soin8293/AmirahCo-CLI/issues/new/choose)
 
 ## Windows
 
 Download the [Windows x64 installer EXE](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.8/AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.exe) or [ZIP](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.8/AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.zip), and verify it against [SHA256SUMS.txt](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.8/SHA256SUMS.txt). Run the EXE, or extract the ZIP and run `install.cmd`. It installs per user, creates emerald Desktop and Start-menu shortcuts and bundles its native dependencies; WSL is not required. The installer is unsigned, so Windows may show a trust warning.
 
 Open AmirahCo CLI and configure your provider using its native setup. You may start a chat, create a project or reopen existing work. Never paste keys into project files, issues, screenshots or shared chats. Your provider's quota, terms and billing apply.
+
+The installer bundles Node.js, Git and the workflow Python runtime. You do not need WSL, Bun or a separate Node installation. Use the Desktop or Start-menu shortcut; a global shell command is not required. Follow the [Windows guide](docs/quick-start-windows.md) for checksum commands and first-run setup.
+
+## Try a first project
+
+1. Choose **Add API key**, then connect your own provider or separately approved tester access.
+2. Choose **New project** and describe a small project. For example: "Build a local reading-list app with book titles, completion status and filters. No accounts, payments, email or deployment. Start with one agent."
+3. Answer the questions and review the generated PRD. Request changes before approving it.
+4. Choose **Build** to continue into native work. Review permissions, actual results and checks before accepting the outcome.
+5. Return through **Session history** or **Open saved project**. Use **New chat** when you want a conversation without guided intake.
+
+See the [full walkthrough](docs/FIRST-PROJECT.md), [troubleshooting](docs/TROUBLESHOOTING.md) and [data locations](docs/DATA-AND-PRIVACY.md). The goal is to reduce repeated setup and supervision; this tester release still needs your judgment on important decisions and final results.
 
 ## What's included
 
@@ -26,9 +38,13 @@ For future versions, use `/update`, or install the reviewed successor over the c
 
 ## Source setup
 
+For contributor requirements, the source map and focused checks, read [development](docs/DEVELOPMENT.md). Linux source builds and macOS limitations are covered in [source setup](docs/quick-start-mac-linux.md). No npm or AUR install is published for this release.
+
 Use the qualified native Node.js 24.22.1 and Bun 1.4.4 with the checked-in lockfile:
 
 ```sh
+git clone https://github.com/soin8293/AmirahCo-CLI.git
+cd AmirahCo-CLI
 bun install --frozen-lockfile
 bun run build
 node bin/amirahcocli
@@ -45,6 +61,10 @@ The public app works with your own supported key. If you want to participate in 
 Powered by [Heabsy](https://heabsy.com). Inferbase participates in the limited evaluation pilot. This does not promise a free personal provider account or indefinite credits.
 
 ## Development and security
+
+Use `/skills` to inspect the bundled entries. For example: "Use amirahco-code-quality and amirahco-maintainability-review on my current diff. Report findings; do not edit." The [skill guide](docs/WORKFLOWS-AND-SKILLS.md) lists the exact native names, how `/simplify` uses them, and the boundaries between review, authorized cleanup and automatic repair.
+
+Read the [changelog](CHANGELOG.md) and [validation record](docs/VALIDATION.md) for the current release's checks and limits. GitHub Actions is disabled; the repository does not claim automated CI passed on every push.
 
 See [public PRD](docs/PRD.md), [security policy](SECURITY.md), [capability status](docs/CAPABILITIES.md), [Windows build](packaging/windows/README.md) and [license scope](LICENSE-SCOPE.md). Existing state and unfinished work must be preserved during fixes and upgrades. Public issues must not include credentials, private conversations or customer files.
 

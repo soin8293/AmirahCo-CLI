@@ -2,8 +2,8 @@
 
 ## Install and start
 
-1. Download the [Windows x64 r8 ZIP](https://www.amirahco.us/cli-updates/packages/AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.zip). Compare its SHA-256 with [SHA256SUMS.txt](https://www.amirahco.us/cli-updates/packages/SHA256SUMS.txt) using `Get-FileHash -Algorithm SHA256`.
-2. Extract the ZIP and run `install.cmd` for your Windows user. It creates Desktop and Start-menu shortcuts; WSL is not required. This prototype is unsigned. If your organization blocks unsigned applications, ask its administrator rather than weakening device security.
+1. Download the Windows x64 EXE or ZIP and checksums from the [r8 release](https://github.com/soin8293/AmirahCo-CLI/releases/tag/v1.0.1-pilot.8). Follow [Windows setup](quick-start-windows.md) for the exact hash command and expected startup menu.
+2. Run the EXE, or extract the ZIP and run `install.cmd`. It creates Desktop and Start-menu shortcuts; WSL is not required. This prototype is unsigned. If your organization blocks unsigned applications, ask its administrator rather than weakening device security.
 3. Open AmirahCo CLI. Use the native setup for a supported provider and your own API key, or connect your separately approved tester access. Project folders are not a place to store keys.
 4. Start a chat, create a project, or reopen existing work. For a project, review its generated PRD before choosing Build. Approval of a PRD alone does not dispatch work.
 

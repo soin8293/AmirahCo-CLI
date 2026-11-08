@@ -1,162 +1,22 @@
-# Windows aliases and launchers
+# Windows launchers and optional shell use
 
-This page documents optional PowerShell helper functions for launching AmirahCo CLI on Windows after a global npm install.
+The r8 installer creates Desktop and Start-menu shortcuts. Use those shortcuts for the supported first-run path; no global npm package or PowerShell profile helper is required.
 
-These helpers are designed for the installed package workflow:
+The installer quotes the native launcher path, including spaces. Its default application folder is `%LOCALAPPDATA%\Programs\AmirahCo CLI`, with a separate folder for each release. The signed updater changes the shortcuts on a safe launch after verifying the new version.
 
-~~~powershell
-npm install -g @amirahco/cli
-~~~
+## Use a source checkout
 
-The helpers use the installed `amirahcocli` CLI command. They do not require a source checkout and do not call source-only `bun run scripts/*.ts` entrypoints.
+From the repository root:
 
-## One-time setup
+```powershell
+node .\bin\amirahcocli --version
+node .\bin\amirahcocli
+```
 
-Run this once in PowerShell:
+Keep the checkout and its configured runtime separate from installed version folders. Do not point an installed shortcut at another checkout to repair an update or missing command.
 
-~~~powershell
-$packageRoot = Join-Path (npm root -g) "@amirahco/cli"
-$aliases = Join-Path $packageRoot "scripts\windows\openclaude-aliases.ps1"
+## When a shell command is missing
 
-if (-not (Test-Path $aliases)) {
-  throw "Alias script not found at $aliases. Update or reinstall @amirahco/cli."
-}
+Use the installed shortcut, or the source commands above. The current installer does not promise a global `amirahcocli` alias. Installing a similarly named package does not register the published Windows app.
 
-if (-not (Test-Path $PROFILE)) {
-  New-Item -ItemType File -Path $PROFILE -Force | Out-Null
-}
-
-$profileLine = ". `"$aliases`""
-
-if (-not (Select-String -Path $PROFILE -Pattern ([regex]::Escape($profileLine)) -Quiet)) {
-  Add-Content -Path $PROFILE -Value "`n$profileLine"
-}
-
-. $aliases
-oc-help
-~~~
-
-Open a new PowerShell window after setup, or dot-source the profile:
-
-~~~powershell
-. $PROFILE
-~~~
-
-## Daily commands
-
-### Launch AmirahCo CLI using the installed CLI
-
-~~~powershell
-oc
-~~~
-
-You can pass normal CLI arguments through `oc`:
-
-~~~powershell
-oc --version
-oc --help
-~~~
-
-### Launch with local Ollama/OpenAI-compatible environment hints
-
-~~~powershell
-oc-local
-~~~
-
-By default, this uses local Ollama through the OpenAI-compatible API:
-
-~~~text
-CLAUDE_CODE_USE_OPENAI=1
-OPENAI_BASE_URL=http://localhost:11434/v1
-OPENAI_MODEL=llama3.1:8b
-~~~
-
-To use a different local model for that invocation:
-
-~~~powershell
-oc-local -Model "qwen2.5-coder:7b"
-~~~
-
-The environment overrides are scoped to that single `amirahcocli` invocation. A later plain `oc` call returns to normal installed CLI behavior and saved-provider-profile behavior.
-
-### Launch with low-latency local defaults
-
-~~~powershell
-oc-fast
-~~~
-
-To use a different model:
-
-~~~powershell
-oc-fast -Model "qwen2.5-coder:7b"
-~~~
-
-Like `oc-local`, the environment overrides are scoped to that single invocation.
-
-### Open the provider manager
-
-~~~powershell
-oc-provider
-~~~
-
-This opens the provider manager through the installed AmirahCo CLI.
-
-### Check local Ollama state
-
-~~~powershell
-oc-check
-~~~
-
-To check a specific model:
-
-~~~powershell
-oc-check -Model "qwen2.5-coder:7b"
-~~~
-
-### Pull/check a local model, then launch local mode
-
-~~~powershell
-oc-init
-~~~
-
-To choose a model:
-
-~~~powershell
-oc-init -Model "qwen2.5-coder:7b"
-~~~
-
-To skip pulling the model and only check/launch:
-
-~~~powershell
-oc-init -Model "qwen2.5-coder:7b" -SkipModelPull
-~~~
-
-`oc-init` does not save a provider profile. It pulls/checks the local Ollama model and then launches `oc-local`.
-
-### Show quick help
-
-~~~powershell
-oc-help
-~~~
-
-## Command summary
-
-| Command | Purpose |
-| --- | --- |
-| `oc` | Launch AmirahCo CLI using the installed CLI and saved/default behavior |
-| `oc-local` | Launch once with local Ollama/OpenAI-compatible environment hints |
-| `oc-fast` | Launch once with local Ollama/OpenAI-compatible low-latency hints |
-| `oc-provider` | Open the provider manager |
-| `oc-check` | Show local Ollama install/listening/model state |
-| `oc-init` | Pull/check a local Ollama model, then launch local mode |
-| `oc-help` | Show quick command help |
-
-## Notes
-
-These helpers are intentionally global-install oriented. They use the installed CLI instead of source-checkout development scripts.
-
-For advanced provider setup, use the built-in provider manager:
-
-~~~powershell
-oc-provider
-~~~
+See [Windows setup](quick-start-windows.md), [troubleshooting](TROUBLESHOOTING.md) and [Windows updates](windows-updates.md). Historical launcher increment notes remain in [native launcher](windows-native-launcher.md).

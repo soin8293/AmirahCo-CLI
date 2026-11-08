@@ -8,7 +8,9 @@
 | Native agent teams | Existing native opt-in and teammate/task primitives | Exact selected-team project completion and high-pressure restart/rollover qualification remain open |
 | Quality repairs and executive decisions | Scoped approved fixes and current work instructions | No blanket automatic quality-repair loop or permission bypass |
 | Completion | Evidence-based refusal guards exist | Owner acceptance and independent review cannot be authored by the worker |
-| Hosted tester keys | Account/manual approval, revoke/replacement and boundary fixtures; prior bounded text/SSE/tool-call probes | Pool is paused with consumed staging caps; no new allowance is implied |
-| Windows installer and updater | r6 native 1.0.1 install-over, interrupted extraction/retry, exact saved stopped intake reopen, approved icon/shortcut bindings and 17 installed-engine recovery cases | Unsigned; live signed update feed inactive; complete production/fresh-device upgrade unqualified |
+| Hosted tester keys | Account/manual approval, revoke/replacement and boundary fixtures; prior bounded text/SSE/tool-call probes | Current capacity and grant availability are server-controlled; download/sign-in grants no allowance |
+| Windows installer and updater | Public r8 EXE/ZIP; anonymous asset/checksum checks; production signed feed; actual installed r7-to-r8 download, staged crash and original-action recovery; saved Stop/history/work preserved; 18 regression tests | Unsigned; separate-device physical acceptance remains open; website updater bandwidth is limited |
 
 The product goal is low-intervention application building from a reviewed brief. A successful task or simulation does not guarantee hands-free delivery of every application. Real project evidence, current criteria, performed checks, current permissions and remaining budgets govern completion.
+
+Use the [documentation index](README.md) for current setup and workflow instructions. [Validation](VALIDATION.md) separates source fixtures, installed receiving, public download checks and unverified conditions.

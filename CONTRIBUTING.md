@@ -31,7 +31,7 @@ bun test --max-concurrency=1 path/to/changed.test.ts
 node --test tests/windows-updater.test.mjs
 ```
 
-The repository contains a manual Ubuntu/Windows verification workflow. Actions are disabled while the release candidate is private; no automatic PR checks or third-party review service are promised. Local results do not establish another-device or live-provider acceptance. State exactly what you tested and what remains unverified.
+The repository contains a manual Ubuntu/Windows verification workflow. GitHub Actions is currently disabled; no automatic PR checks or third-party review service are promised. Local results do not establish another-device or live-provider acceptance. State exactly what you tested and what remains unverified. See [development](docs/DEVELOPMENT.md) for entry points and [validation](docs/VALIDATION.md) for recorded release checks.
 
 ## Pull requests
 

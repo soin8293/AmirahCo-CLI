@@ -1,4 +1,22 @@
-# Candidate validation — November 7, 2026
+# Release validation, November 7, 2026
+
+## Current r8 receiving
+
+| Check | Observed result |
+|---|---|
+| Public GitHub release | Repository public; r8 is a published prerelease; anonymous EXE/ZIP checks pass and all six asset digests match prepared files |
+| Signed production update | Feed signature, exact bytes, full ZIP size/hash and direct same-origin HTTPS verified |
+| Actual installed upgrade | Packaged r7 client approved the production r8 download without early installation; actual staged-process crash followed by same-digest restart recovery and both fixture shortcut switches |
+| State and branding preservation | Stopped intake reopens at question 3; database/history/work hashes match; CLI/UI and emerald icon bytes unchanged |
+| Native commands | Installed r8 reports `1.0.1 (AmirahCo CLI)` and `AmirahCo CLI is up to date.` |
+| Updater/signing regression suite | 18 tests passed, including the protected-key signing fixture and existing recovery cases |
+| Public website preservation | All 149 prior hosted file hashes retained; no grant, router, sign-in or allowance changes included |
+
+Run `node --test tests/windows-updater.test.mjs tests/windows-update-release.test.mjs` for the source fixtures. That suite is separate from the recorded real production-package receiving. GitHub Actions remains disabled; these are not claims of a green automated CI run.
+
+The maintainer retains exact release receipts and private fixture paths. Public artifacts and `SHA256SUMS.txt` let you check the released file identities without exposing project stores. The installed recovery test used the same computer and isolated shortcuts, not a fresh Windows device.
+
+## Earlier r6 source and package receiving
 
 These are bounded source, package and fixture checks. They do not establish universally unattended project completion or owner acceptance on a separate computer.
 
@@ -23,8 +41,14 @@ An existing isolated router fixture run also reported 75 passing access-control/
 
 - Another-device installation, visible onboarding, real provider setup and delivered-project usability acceptance.
 - New or renewed tester grants, an active partner pool, partner-credit availability or inference throughput.
-- Authenticode signing, an active production updater or a public release.
+- Authenticode signing or unlimited distribution bandwidth. The production feed and public release are now verified separately above.
 - Exact selected-team, app/lead restart, channel rollover and sustained-load project completion.
 - Approval of the generated repository banner or a uniform license for all inherited code.
 
 See [release checklist](RELEASE-CHECKLIST.md), [capability boundaries](CAPABILITIES.md) and the release asset checksums.
+
+## Documentation review
+
+The public guides were compared with the owner's released [Workflow Creator](https://github.com/soin8293/workflow-creator), [Context Keeper](https://github.com/soin8293/context-keeper) and [memory_Db](https://github.com/soin8293/memory_Db) documentation. The comparison covered install requirements, an actual-use example, invocation details, data/recovery guidance, contributor entry points and evidence limits.
+
+The review corrected unpublished package commands and upstream clone instructions, added a documentation index and first-project/skill/recovery/privacy/development guides, and removed stale release/feed claims. `node scripts/check-release-docs.mjs` checks local links/headings, required guide presence, bundled skill names, runtime pins and obsolete package-install commands. Its five self-checks run with `--self-test`. External provider behavior and a new live model run are outside this documentation check.

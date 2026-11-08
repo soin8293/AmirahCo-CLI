@@ -12,6 +12,8 @@ An AI coding CLI centered on agent orchestration, with bundled project-planning,
 
 ## Included
 
+Current setup and usage documentation is maintained on the default branch: [Windows setup](https://github.com/soin8293/AmirahCo-CLI/blob/main/docs/quick-start-windows.md), [first project](https://github.com/soin8293/AmirahCo-CLI/blob/main/docs/FIRST-PROJECT.md), [skills and workflows](https://github.com/soin8293/AmirahCo-CLI/blob/main/docs/WORKFLOWS-AND-SKILLS.md) and [troubleshooting](https://github.com/soin8293/AmirahCo-CLI/blob/main/docs/TROUBLESHOOTING.md). Documentation corrections do not replace the r8 files or move the published tag.
+
 - Native emerald interface, Matrix Elric artwork, globe, information table, scrolling/input history, menus and agent tabs.
 - Saved project intake, personalized questions, PRD generation/review and an explicit Build handoff.
 - Six project skills and three quality skills adapted from Ponytail, P-Stack and the thermonuclear review, plus `/simplify`.

@@ -1,194 +1,46 @@
-# AmirahCo CLI Quick Start for Windows
+# Install and run on Windows
 
-This guide uses Windows PowerShell.
+Use the Windows x64 installer for the r8 tester release. Node.js, Git and the workflow Python runtime are bundled. You do not need WSL, Bun, a source checkout or an administrator account for the per-user installation.
 
-## 1. Install Node.js
+## Install
 
-Install Node.js 22 LTS or newer from:
-
-- `https://nodejs.org/`
-
-Then open PowerShell and check it:
+1. Open the [r8 release](https://github.com/soin8293/AmirahCo-CLI/releases/tag/v1.0.1-pilot.8).
+2. Download `AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.exe` and `SHA256SUMS.txt`.
+3. In PowerShell, check the downloaded file:
 
 ```powershell
-node --version
-npm --version
+Get-FileHash "$env:USERPROFILE\Downloads\AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.exe" -Algorithm SHA256
 ```
 
-## 2. Install AmirahCo CLI
+Compare the hash with the EXE entry in `SHA256SUMS.txt`. If your download folder differs, use its actual path. If the values differ, obtain a fresh download before running it.
 
-```powershell
-npm install -g @amirahco/cli@latest
-```
+4. Run the EXE. Installation creates **AmirahCo CLI Pilot** shortcuts on the Desktop and in the Start menu.
+5. Open either shortcut. Loading feedback appears before the native menu.
 
-## 3. Pick One Provider
+The installer is unsigned. If your organization's device policy blocks it, contact its administrator. This release does not include an ARM64 installer or qualified macOS installer.
 
-### Option A: OpenAI
+If you prefer the ZIP, download the matching r8 ZIP, check its hash, extract the whole archive and run `install.cmd`. Keep `payload.zip` beside the installation scripts until installation finishes.
 
-Replace `sk-your-key-here` with your real key.
+## Connect your AI access
 
-```powershell
-$env:CLAUDE_CODE_USE_OPENAI="1"
-$env:OPENAI_API_KEY="sk-your-key-here"
-$env:OPENAI_MODEL="gpt-4o"
+Choose **Add API key** in the opening menu. Use your supported provider's setup, or choose **Sign in for tester access** if the maintainer has invited you to the partner pilot. In a chat, `/provider` opens provider-profile management.
 
-amirahcocli
-```
+Google sign-in identifies your account. Tester access still needs manual approval, an active allowance and available pool capacity. Downloading the app does not issue a key. See [tester access](native-tester-onboarding.md).
 
-### Option B: DeepSeek
+Use a model ID and endpoint from your provider. A website or chat subscription does not automatically supply an API key. Keep credentials in the native setup, outside project files and shared screenshots.
 
-```powershell
-$env:CLAUDE_CODE_USE_OPENAI="1"
-$env:OPENAI_API_KEY="sk-your-key-here"
-$env:OPENAI_BASE_URL="https://api.deepseek.com/v1"
-$env:OPENAI_MODEL="deepseek-v4-flash"
+## Start a chat or project
 
-amirahcocli
-```
+Use the arrow keys to move the selection and Enter to choose. **New chat** opens a fresh conversation. **New project** opens guided intake and PRD review. **Session history** reopens a previous conversation; **Open saved project** returns to saved intake or PRD work.
 
-Use `deepseek-v4-pro` when you want the stronger model. `deepseek-chat` and `deepseek-reasoner` still work as DeepSeek's legacy API aliases.
+Follow the [first-project walkthrough](FIRST-PROJECT.md) for a small coding task. Use the mouse wheel or touchpad for scrollback; up/down in the chat input recalls previous entries. In a selection menu, up/down moves the selection instead.
 
-### Option C: Ollama
+## Update later
 
-Install Ollama first from:
+Run `/update` in the app. Choose **Install update on next safe launch** or **Later**. Close your sessions normally, then reopen from the shortcut. The app preserves the current version and saved work if an update cannot finish.
 
-- `https://ollama.com/download/windows`
+Older r6 builds have no trusted update feed. Install r8 over the same per-user location once to enable it. The default binary folder is `%LOCALAPPDATA%\Programs\AmirahCo CLI`; saved project records live separately.
 
-Then run:
+Use the shortcuts first. A global `amirahcocli` command is not required or promised by this installer. There is no published npm installation path for this release.
 
-```powershell
-ollama pull llama3.1:8b
-
-$env:CLAUDE_CODE_USE_OPENAI="1"
-$env:OPENAI_BASE_URL="http://localhost:11434/v1"
-$env:OPENAI_MODEL="llama3.1:8b"
-
-amirahcocli
-```
-
-No API key is needed for Ollama local models.
-
-AmirahCo CLI asks Ollama for a 32768-token context window on each chat request.
-If you need a different size, set `OPENCLAUDE_OLLAMA_NUM_CTX` before launching
-AmirahCo CLI, or start Ollama with a global context setting:
-
-```powershell
-# Quit any existing Ollama app/server first, then run:
-$env:OLLAMA_CONTEXT_LENGTH="32768"
-ollama serve
-```
-
-After a chat request, run `ollama ps` in another PowerShell window and check the
-`CONTEXT` column. It should show the requested size. If it still shows a small
-value such as `4K`, restart the Ollama app/server and try again.
-
-### Option D: LM Studio
-
-Install LM Studio first from:
-
-- `https://lmstudio.ai/`
-
-Then in LM Studio:
-
-1. Download a model (e.g., Llama 3.1 8B, Mistral 7B)
-2. Go to the "Developer" tab
-3. Select your model and enable the server via the toggle
-
-Then run:
-
-```powershell
-$env:CLAUDE_CODE_USE_OPENAI="1"
-$env:OPENAI_BASE_URL="http://localhost:1234/v1"
-$env:OPENAI_MODEL="your-model-name"
-# $env:OPENAI_API_KEY="lmstudio"  # optional: some users need a dummy key
-
-amirahcocli
-```
-
-Replace `your-model-name` with the model name shown in LM Studio.
-
-No API key is needed for LM Studio local models (but uncomment the `OPENAI_API_KEY` line if you hit auth errors).
-
-### Option E: Using a .env file (Optional)
-
-If you prefer to keep your keys in a `.env` file instead of exporting them individually, note that AmirahCo CLI does not load `.env` files automatically. You must explicitly pass it:
-
-```powershell
-amirahcocli --provider-env-file .env
-```
-
-Keep `.env` out of git because it contains secrets.
-The explicit loader accepts provider/setup variables. Set runtime/debug variables in PowerShell or your launcher instead.
-
-## 4. If `amirahcocli` Is Not Found
-
-Close PowerShell, open a new one, and try again:
-
-```powershell
-amirahcocli
-```
-
-If PowerShell still says `amirahcocli` is not recognized, npm's global bin
-folder may be missing from your user `Path`. Add it, then open a new
-PowerShell window:
-
-```powershell
-$npmPrefix = npm config get prefix
-$currentUserPath = [Environment]::GetEnvironmentVariable("Path", "User")
-
-if (($currentUserPath -split ';') -notcontains $npmPrefix) {
-    [Environment]::SetEnvironmentVariable(
-        "Path",
-        "$currentUserPath;$npmPrefix",
-        "User"
-    )
-}
-```
-
-## 5. If Your Provider Fails
-
-Check the basics:
-
-### For OpenAI or DeepSeek
-
-- make sure the key is real
-- make sure you copied it fully
-
-### For Ollama
-
-- make sure Ollama is installed
-- make sure Ollama is running
-- make sure the model was pulled successfully
-- if same-session chat history appears missing, verify the active `CONTEXT`
-  value with `ollama ps`; AmirahCo CLI requests 32K by default
-
-### For LM Studio
-
-- make sure LM Studio is installed
-- make sure LM Studio is running
-- make sure the server is enabled (toggle on in the "Developer" tab)
-- make sure a model is loaded in LM Studio
-- make sure the model name matches what you set in `OPENAI_MODEL`
-
-## 6. Updating AmirahCo CLI
-
-```powershell
-npm install -g @amirahco/cli@latest
-```
-
-## 7. Uninstalling AmirahCo CLI
-
-```powershell
-npm uninstall -g @amirahco/cli
-```
-
-
-## Need Advanced Setup?
-
-For advanced provider setup, custom endpoints, environment variables, and enterprise launch workflows, see the advanced setup guide:
-
-- [Advanced setup](advanced-setup.md)
-
-For Windows helper aliases and launcher shortcuts such as `oc`, `oc-init`, `oc-local`, `oc-provider`, and `oc-check`, see:
-
-- [Windows aliases and launchers](windows-aliases-and-launchers.md)
+See [troubleshooting](TROUBLESHOOTING.md) and [data and privacy](DATA-AND-PRIVACY.md) before moving or removing saved files.

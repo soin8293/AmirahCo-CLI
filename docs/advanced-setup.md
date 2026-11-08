@@ -1,40 +1,22 @@
-# AmirahCo CLI Advanced Setup
+# Advanced provider and runtime setup
 
 This guide is for users who want source builds, Bun workflows, provider profiles, diagnostics, or more control over runtime behavior.
 
-## Install Options
+For the published Windows package, start with [Windows setup](quick-start-windows.md). This reference covers additional configuration; provider model IDs and capacity still come from your provider, not this guide's examples.
 
-AmirahCo CLI requires Node.js `>=22.0.0` for npm installs and runtime. Bun is
-only required when building or running from source.
+## Build from source
 
-### Option A: npm
-
-```bash
-npm install -g @amirahco/cli@latest
-```
-
-### Option B: From source with Bun
-
-Use Bun `1.3.13` or newer for source builds. Older Bun versions can fail during `bun run build`.
+Use the versions pinned in `.node-version` and `.bun-version`. The published Windows installer bundles runtimes; source builds need their own development tools. No npm package installation is published for this release.
 
 ```bash
-git clone https://github.com/Gitlawb/openclaude.git
-cd amirahcocli
-
-bun install
+git clone https://github.com/soin8293/AmirahCo-CLI.git
+cd AmirahCo-CLI
+bun install --frozen-lockfile
 bun run build
-npm link
+node bin/amirahcocli
 ```
 
-### Option C: Run directly with Bun
-
-```bash
-git clone https://github.com/Gitlawb/openclaude.git
-cd amirahcocli
-
-bun install
-bun run dev
-```
+See [development](DEVELOPMENT.md) for the source map and focused checks. Examples below use `amirahcocli` when it is already available in your shell; from a checkout, substitute `node bin/amirahcocli`.
 
 ## Provider Examples
 
@@ -611,9 +593,8 @@ Notes:
   levels used for existing telemetry (see [Runtime Hardening](#runtime-hardening)).
 - Only sanitized, telemetry-safe error messages are sent — never raw error
   messages, which may contain file paths or other identifying information.
-- `@sentry/node` is an optional dev dependency and is **not included** in the
-  default `npm install -g @amirahco/cli` install (see
-  [Optional provider packages](#optional-provider-packages)). If you set
+- Availability of `@sentry/node` depends on the source/build package. See
+  [Optional provider packages](#optional-provider-packages). If you set
   `SENTRY_DSN` without installing it separately, reporting is silently
   disabled (no error, no crash). Install it explicitly with:
 

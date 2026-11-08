@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.0.1-pilot.8, November 7, 2026
+
+Public Windows x64 tester prerelease: [downloads and checksums](https://github.com/soin8293/AmirahCo-CLI/releases/tag/v1.0.1-pilot.8).
+
+- Configured the signed production update feed and bundled public verification key. Older r6 clients need one manual r8 install-over to enable updates.
+- Rebuilt the EXE and ZIP with the existing emerald icon, native UI and bundled Windows runtimes.
+- Verified real HTTPS download/approval, an actual staged-process crash, original-action restart recovery, shortcut selection and preserved stopped intake/history/unfinished work.
+- Published the repository, r8 EXE, ZIP, checksums, package receipt and pinned contributor runtime base. Earlier candidates remain preserved.
+
+The release includes guided intake, PRD review, native work handoff, bundled project/quality skills and experimental native teams. It does not establish universally unattended completion, qualified macOS saved-project storage or an automatic quality-repair loop. See [capabilities](docs/CAPABILITIES.md).
+
+## Documentation follow-up
+
+Corrected the inherited npm/AUR/upstream-clone setup routes, added a first-project walkthrough and documented skill invocation, source setup, saved data and recovery. Updated stale private-release and inactive-feed statements. These documentation changes do not replace the r8 binaries or move its published tag.
+
+## Inherited upstream release history
+
+Earlier entries below are retained from the upstream project and are not AmirahCo CLI release numbers.
+
 ## [0.29.1](https://github.com/Gitlawb/openclaude/compare/v0.29.0...v0.29.1) (2026-08-19)
 
 

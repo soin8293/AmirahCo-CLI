@@ -16,7 +16,7 @@ The initial receiving attempt exposed an inherited PowerShell 7 module path in a
 
 No publication, route activation, provider request, allowance renewal, automatic repair or owner-session restart occurred. The installer is unsigned and its live update feed/production keys remain unconfigured. Local fixture receiving does not qualify a complete production HTTPS signed-package rollout, fresh-device UI/reopen acceptance, unusually deep paths or automatic full-UI rollback. Those remain release gates.
 
-[r5 receiving receipt](../../../../../releases/windows-pilot-20261106/evidence/installer-r5-receiving.json). The authoritative receipt is releases/windows-pilot-20261106/evidence/installer-r5-receiving.json. This packaging increment does not rewrite frozen baseline v1 or close unrelated AMR/Done/Q gates.
+The r5 receipt is retained in the maintainer's private release evidence. The public [validation record](VALIDATION.md) summarizes its scope and the current r8 receiving. This historical packaging increment does not rewrite frozen baseline v1 or close unrelated AMR/Done/Q gates.
 
 Status: implemented locally, unpublished. The native CLI and SDK build include the new flow. The retained r4 EXE/ZIP are unchanged historical candidates and do not contain this increment. No feed, signing identity or public download has been activated.
 

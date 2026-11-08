@@ -1,189 +1,26 @@
-# AmirahCo CLI Quick Start for macOS and Linux
+# Build from source on Linux or macOS
 
-This guide uses a standard shell such as Terminal, iTerm, bash, or zsh.
+The published tester installer is Windows x64. This page is for source development. Native saved-project storage supports Linux and Windows; macOS saved intake is not qualified or enabled by the current host guard. A source checkout does not establish full platform support.
 
-## 1. Install Node.js
+## Prepare the tools
 
-Install Node.js 22 LTS or newer from:
+Install Git, Node.js and Bun. Use the Node and Bun versions pinned in `.node-version` and `.bun-version`. Workflow execution also needs native Python 3.11 or newer with `sqlite3`.
 
-- `https://nodejs.org/`
+## Build and open the CLI
 
-Then check it:
-
-```bash
-node --version
-npm --version
+```sh
+git clone https://github.com/soin8293/AmirahCo-CLI.git
+cd AmirahCo-CLI
+bun install --frozen-lockfile
+bun run build
+node bin/amirahcocli --version
+node bin/amirahcocli
 ```
 
-## 2. Install AmirahCo CLI
+The version command prints `1.0.1 (AmirahCo CLI)` for the current r8 source. The final command opens the native interface. Choose **Add API key** or use `/provider` to configure your own provider.
 
-```bash
-npm install -g @amirahco/cli@latest
-```
-On Arch Linux, you can alternatively install AmirahCo CLI via the community-maintained [AUR package](https://aur.archlinux.org/packages/openclaude):
+Use Linux-local storage for project records. A mounted Windows or cloud directory is not an interchangeable state store. See [development](DEVELOPMENT.md) and the [storage reference](windows-native-storage.md) before changing state roots.
 
-```bash
-paru -S amirahcocli
-```
-## 3. Pick One Provider
+The repository has no published npm package, supported AUR installation or Linux/macOS installer for this release. Source checkouts do not self-update through the Windows binary channel. To update a checkout, preserve your local work, review the upstream changes, then use your normal Git and frozen-lockfile build workflow.
 
-### Option A: OpenAI
-
-Replace `sk-your-key-here` with your real key.
-
-```bash
-export CLAUDE_CODE_USE_OPENAI=1
-export OPENAI_API_KEY=sk-your-key-here
-export OPENAI_MODEL=gpt-4o
-
-amirahcocli
-```
-
-### Option B: DeepSeek
-
-```bash
-export CLAUDE_CODE_USE_OPENAI=1
-export OPENAI_API_KEY=sk-your-key-here
-export OPENAI_BASE_URL=https://api.deepseek.com/v1
-export OPENAI_MODEL=deepseek-v4-flash
-
-amirahcocli
-```
-
-Use `deepseek-v4-pro` when you want the stronger model. `deepseek-chat` and `deepseek-reasoner` still work as DeepSeek's legacy API aliases.
-
-### Option C: Ollama
-
-Install Ollama first from:
-
-- `https://ollama.com/download`
-
-Then run:
-
-```bash
-ollama pull llama3.1:8b
-
-export CLAUDE_CODE_USE_OPENAI=1
-export OPENAI_BASE_URL=http://localhost:11434/v1
-export OPENAI_MODEL=llama3.1:8b
-
-amirahcocli
-```
-
-No API key is needed for Ollama local models.
-
-AmirahCo CLI asks Ollama for a 32768-token context window on each chat request.
-If you need a different size, set `OPENCLAUDE_OLLAMA_NUM_CTX` before launching
-AmirahCo CLI, or start Ollama with a global context setting:
-
-```bash
-# Stop any existing Ollama app/server first, then run:
-OLLAMA_CONTEXT_LENGTH=32768 ollama serve
-```
-
-After a chat request, run `ollama ps` in another terminal and check the
-`CONTEXT` column. It should show the requested size. If it still shows a small
-value such as `4K`, restart the Ollama app/server and try again.
-
-### Option D: LM Studio
-
-Install LM Studio first from:
-
-- `https://lmstudio.ai/`
-
-Then in LM Studio:
-
-1. Download a model (e.g., Llama 3.1 8B, Mistral 7B)
-2. Go to the "Developer" tab
-3. Select your model and enable the server via the toggle
-
-Then run:
-
-```bash
-export CLAUDE_CODE_USE_OPENAI=1
-export OPENAI_BASE_URL=http://localhost:1234/v1
-export OPENAI_MODEL=your-model-name
-# export OPENAI_API_KEY=lmstudio  # optional: some users need a dummy key
-
-amirahcocli
-```
-
-Replace `your-model-name` with the model name shown in LM Studio.
-
-No API key is needed for LM Studio local models (but uncomment the `OPENAI_API_KEY` line if you hit auth errors).
-
-### Option E: Using a .env file (Optional)
-
-If you prefer to keep your keys in a `.env` file instead of exporting them individually, note that AmirahCo CLI does not load `.env` files automatically. You must explicitly pass it:
-
-```bash
-amirahcocli --provider-env-file .env
-```
-
-Keep `.env` out of git because it contains secrets.
-The explicit loader accepts provider/setup variables. Export runtime/debug variables from your shell or launcher instead.
-
-## 4. If `amirahcocli` Is Not Found
-
-Close the terminal, open a new one, and try again:
-
-```bash
-amirahcocli
-```
-
-## 5. If Your Provider Fails
-
-Check the basics:
-
-### For OpenAI or DeepSeek
-
-- make sure the key is real
-- make sure you copied it fully
-
-### For Ollama
-
-- make sure Ollama is installed
-- make sure Ollama is running
-- make sure the model was pulled successfully
-- if same-session chat history appears missing, verify the active `CONTEXT`
-  value with `ollama ps`; AmirahCo CLI requests 32K by default
-
-### For LM Studio
-
-- make sure LM Studio is installed
-- make sure LM Studio is running
-- make sure the server is enabled (toggle on in the "Developer" tab)
-- make sure a model is loaded in LM Studio
-- make sure the model name matches what you set in `OPENAI_MODEL`
-
-## 6. Updating AmirahCo CLI
-
-**Via npm:**
-```bash
-npm install -g @amirahco/cli@latest
-```
-
-**Via AUR:**
-```bash
-paru
-```
-*(Or use your preferred AUR helper like `yay -Syu`)*
-
-## 7. Uninstalling AmirahCo CLI
-
-**Via npm:**
-```bash
-npm uninstall -g @amirahco/cli
-```
-
-**Via AUR (Arch Linux):**
-```bash
-paru -Rns amirahcocli
-```
-
-## Need Advanced Setup?
-
-Use:
-
-- [Advanced Setup](advanced-setup.md)
-  For Codex, Gemini, Mistral, LiteLLM, provider profiles, and runtime diagnostics.
+For a private provider environment file, use `node bin/amirahcocli --provider-env-file /absolute/path/provider.env`. See [provider configuration](advanced-setup.md) and [`.env.example`](../.env.example). Project `.env` files are not loaded automatically.
