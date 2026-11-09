@@ -1,5 +1,9 @@
 # Public release PRD
 
+## Direct download buttons — November 8, 2026
+
+Place prominent **Download for Windows** and **Download ZIP** buttons directly below the repository graphic. Link them to the immutable published r8 EXE and Windows x64 installer ZIP; the ZIP is not described as a portable edition. Verify both badge images and anonymous download links before publication. Keep the existing setup/checksum instructions and artwork. Remove security-status badges from the header while retaining the enabled controls and their verification details in Security. No installer, release asset, update feed, account or allowance changes.
+
 ## Repository protections and badges — November 7, 2026
 
 GitHub secret scanning and repository push protection are enabled and verified by API readback. A scanner-generated alert for the deterministic `FAKE_LONG_OPAQUE` test fixture was reviewed and resolved as `used_in_tests`, without adding exclusions. Open alerts were empty at readback. This confirms scanning activity and the enabled controls; it does not establish complete historical scan completion or a live-credential push-blocking challenge.

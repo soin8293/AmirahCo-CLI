@@ -4,7 +4,7 @@
 
 GitHub secret scanning and repository push protection were enabled and read back through GitHub's API on November 7, 2026. Secret scanning produced an alert for the deterministic `FAKE_LONG_OPAQUE` redaction-test fixture; after source review, that specific alert was resolved as `used_in_tests`. No detector or path exclusion was added. The open-alert readback was empty at verification time; this is not a guarantee that the repository contains no secrets.
 
-The README security badges record this configuration check, not a live status feed or security certification. The release/download badges use live GitHub metadata. GitHub Actions remains disabled, so no CI or coverage success badge is claimed.
+This page records the dated configuration check, not a live status feed or security certification. Security-status badges were removed from the README header on November 8 to keep its focus on the app and downloads; both protections remain enabled. The release/download-count badges use live GitHub metadata. GitHub Actions remains disabled, so no CI or coverage success badge is claimed.
 
 Push protection's enabled state was verified; no real credential was created or pushed to challenge its blocking behavior. GitHub's scan-history endpoint is unavailable under this repository's current feature entitlement, so a full historical scan-completion timestamp is not claimed. Maintainers should review new GitHub alerts and retain the local full-history/file-blob scan before releases. Never bypass a block for a real credential.
 
