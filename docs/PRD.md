@@ -52,3 +52,8 @@ Installed production receiving passed: the packaged r7 client downloaded and app
 ## Windows window branding — November 16, 2026
 
 Source implementation applies the official white-on-emerald window icon through the native Windows launcher while preserving desktop artwork, existing sessions and environment overrides. Acceptance requires actual small/large window-icon readback after a native title change, spaced-path/TTY receiving and no duplicate session after an uncertain handoff. Five focused checks and the live Windows fixture passed; local install receiving is recorded in [window branding](windows-terminal-window-icon.md). Default Terminal profiles, public r8 assets and the production update feed are unchanged. Fresh-device and owner visual acceptance remain separate.
+
+
+## r14 Windows delivery — November 16, 2026
+
+The immutable r14 EXE, ZIP and checksums are public on GitHub. Complete anonymous downloads match the approved hashes. The same-origin ZIP was verified before atomically activating the signed sequence-14 feed using the existing r8 trust key/schema. All 152 prior website paths retain their hashes except the intended feed replacement; two versioned package paths were added and Hosting configuration is unchanged. The native r8 client accepts the live offer and verifies its actual download. Session-hold/recovery receiving is isolated from owner state; existing sessions, work, manual access approval and allowances remain protected. No allowance renewals, router changes or forced restarts. See [update delivery](UPDATE-RELEASE-RUNBOOK.md).

@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.1-pilot.14, November 16, 2026
+
+[Windows downloads and checksums](https://github.com/soin8293/AmirahCo-CLI/releases/tag/v1.0.1-pilot.14). The signed pilot feed now offers r14; use `/update` and install on the next safe launch.
+
+- White-on-emerald window branding with the original desktop artwork preserved.
+- Native launch retains provider/state environment overrides.
+- Local pilot improvements to intake/PRD continuation, tester setup/routing/rate waits, startup progress and scrolling.
+- Signed download integrity and session/recovery protections retained; no allowance renewals or forced restarts.
+
+The installer remains unsigned by Authenticode. Fresh-device acceptance and configured-profile window branding limits remain documented. Prior packages are preserved.
+
 ## 1.0.1-pilot.8, November 7, 2026
 
 Public Windows x64 tester prerelease: [downloads and checksums](https://github.com/soin8293/AmirahCo-CLI/releases/tag/v1.0.1-pilot.8).

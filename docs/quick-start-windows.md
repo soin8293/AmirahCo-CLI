@@ -1,15 +1,15 @@
 # Install and run on Windows
 
-Use the Windows x64 installer for the r8 tester release. Node.js, Git and the workflow Python runtime are bundled. You do not need WSL, Bun, a source checkout or an administrator account for the per-user installation.
+Use the Windows x64 installer for the r14 tester release. Node.js, Git and the workflow Python runtime are bundled. You do not need WSL, Bun, a source checkout or an administrator account for the per-user installation.
 
 ## Install
 
-1. Open the [r8 release](https://github.com/soin8293/AmirahCo-CLI/releases/tag/v1.0.1-pilot.8).
-2. Download `AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.exe` and `SHA256SUMS.txt`.
+1. Open the [r14 release](https://github.com/soin8293/AmirahCo-CLI/releases/tag/v1.0.1-pilot.14).
+2. Download `AmirahCoCLI-Pilot-1.0.1-r14-Windows-x64.exe` and `SHA256SUMS.txt`.
 3. In PowerShell, check the downloaded file:
 
 ```powershell
-Get-FileHash "$env:USERPROFILE\Downloads\AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.exe" -Algorithm SHA256
+Get-FileHash "$env:USERPROFILE\Downloads\AmirahCoCLI-Pilot-1.0.1-r14-Windows-x64.exe" -Algorithm SHA256
 ```
 
 Compare the hash with the EXE entry in `SHA256SUMS.txt`. If your download folder differs, use its actual path. If the values differ, obtain a fresh download before running it.
@@ -19,7 +19,7 @@ Compare the hash with the EXE entry in `SHA256SUMS.txt`. If your download folder
 
 The installer is unsigned. If your organization's device policy blocks it, contact its administrator. This release does not include an ARM64 installer or qualified macOS installer.
 
-If you prefer the ZIP, download the matching r8 ZIP, check its hash, extract the whole archive and run `install.cmd`. Keep `payload.zip` beside the installation scripts until installation finishes.
+If you prefer the ZIP, download the matching r14 ZIP, check its hash, extract the whole archive and run `install.cmd`. Keep `payload.zip` beside the installation scripts until installation finishes.
 
 ## Connect your AI access
 
@@ -39,7 +39,7 @@ Follow the [first-project walkthrough](FIRST-PROJECT.md) for a small coding task
 
 Run `/update` in the app. Choose **Install update on next safe launch** or **Later**. Close your sessions normally, then reopen from the shortcut. The app preserves the current version and saved work if an update cannot finish.
 
-Older r6 builds have no trusted update feed. Install r8 over the same per-user location once to enable it. The default binary folder is `%LOCALAPPDATA%\Programs\AmirahCo CLI`; saved project records live separately.
+Older r6 builds have no trusted update feed. Install r14 over the same per-user location once to enable it. The default binary folder is `%LOCALAPPDATA%\Programs\AmirahCo CLI`; saved project records live separately.
 
 Use the shortcuts first. A global `amirahcocli` command is not required or promised by this installer. There is no published npm installation path for this release.
 

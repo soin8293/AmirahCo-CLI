@@ -8,18 +8,18 @@
 
 ![AmirahCo CLI — AI coding and agent orchestration](assets/github/repository-hero.png)
 
-[![Download for Windows](https://img.shields.io/badge/Download_for_Windows-EXE-059669?style=for-the-badge)](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.8/AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.exe)
-[![Download ZIP](https://img.shields.io/badge/Download_ZIP-Windows_x64-059669?style=for-the-badge)](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.8/AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.zip)
+[![Download for Windows](https://img.shields.io/badge/Download_for_Windows-EXE-059669?style=for-the-badge)](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.14/AmirahCoCLI-Pilot-1.0.1-r14-Windows-x64.exe)
+[![Download ZIP](https://img.shields.io/badge/Download_ZIP-Windows_x64-059669?style=for-the-badge)](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.14/AmirahCoCLI-Pilot-1.0.1-r14-Windows-x64.zip)
 
 An AI coding CLI centered on agent orchestration: plan a project, carry its context into coding, coordinate agents and check results from your terminal. Based on [OpenClaude](https://github.com/Gitlawb/openclaude), with an emerald interface and bundled project-planning and code-quality skills.
 
-**Release status:** Public Windows tester prototype, [r8 prerelease](https://github.com/soin8293/AmirahCo-CLI/releases/tag/v1.0.1-pilot.8). Bring your own supported provider API key. Optional partner-backed evaluation access is limited and manually approved; no unlimited credits or guaranteed hands-free completion are offered.
+**Release status:** Public Windows tester prototype, [r14 prerelease](https://github.com/soin8293/AmirahCo-CLI/releases/tag/v1.0.1-pilot.14). Bring your own supported provider API key. Optional partner-backed evaluation access is limited and manually approved; no unlimited credits or guaranteed hands-free completion are offered.
 
 [Get started](docs/quick-start-windows.md) · [Documentation](docs/README.md) · [Skills and workflows](docs/WORKFLOWS-AND-SKILLS.md) · [Report a bug](https://github.com/soin8293/AmirahCo-CLI/issues/new/choose)
 
 ## Windows
 
-Download the [Windows x64 installer EXE](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.8/AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.exe) or [ZIP](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.8/AmirahCoCLI-Pilot-1.0.1-r8-Windows-x64.zip), and verify it against [SHA256SUMS.txt](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.8/SHA256SUMS.txt). Run the EXE, or extract the ZIP and run `install.cmd`. It installs per user, creates emerald Desktop and Start-menu shortcuts and bundles its native dependencies; WSL is not required. The installer is unsigned, so Windows may show a trust warning.
+Download the [Windows x64 installer EXE](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.14/AmirahCoCLI-Pilot-1.0.1-r14-Windows-x64.exe) or [ZIP](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.14/AmirahCoCLI-Pilot-1.0.1-r14-Windows-x64.zip), and verify it against [SHA256SUMS.txt](https://github.com/soin8293/AmirahCo-CLI/releases/download/v1.0.1-pilot.14/SHA256SUMS.txt). Run the EXE, or extract the ZIP and run `install.cmd`. It installs per user, creates emerald Desktop and Start-menu shortcuts and bundles its native dependencies; WSL is not required. The installer is unsigned, so Windows may show a trust warning.
 
 Open AmirahCo CLI and configure your provider using its native setup. You may start a chat, create a project or reopen existing work. Never paste keys into project files, issues, screenshots or shared chats. Your provider's quota, terms and billing apply.
 
@@ -82,6 +82,6 @@ See [public PRD](docs/PRD.md), [security policy](SECURITY.md), [capability statu
 [LICENSE](LICENSE) preserves the inherited notices. [LICENSE-AMIRAHCO](LICENSE-AMIRAHCO) covers AmirahCo-owned original additions only; it does not relicense third-party or inherited code. See [license scope](LICENSE-SCOPE.md). The open-source publication disposition remains subject to those component boundaries.
 
 
-## Windows window branding (source update)
+## Windows window branding
 
-The Windows launcher now applies the white AmirahCo logo on emerald to a dedicated Terminal window while preserving the original desktop icon. Provider and state environment overrides carry through unchanged. See [window branding and verification](docs/windows-terminal-window-icon.md) for supported launch paths, tests and fallback behavior. This source update does not replace the published r8 installer or activate a new update feed.
+The Windows launcher now applies the white AmirahCo logo on emerald to a dedicated Terminal window while preserving the original desktop icon. Provider and state environment overrides carry through unchanged. See [window branding and verification](docs/windows-terminal-window-icon.md) for supported launch paths, tests and fallback behavior. r14 is published with verified Windows downloads and an active signed update feed. Run `/update`, review the offer and install on the next safe launch; running sessions are not forcibly restarted.

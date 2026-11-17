@@ -2,7 +2,7 @@
   "product": "amirahco-cli",
   "platform": "windows-x64",
   "channel": "pilot",
-  "sequence": 8,
+  "sequence": 14,
   "stateSchema": 1,
   "feed": "https://www.amirahco.us/cli-updates/pilot/windows-x64.json",
   "keys": [

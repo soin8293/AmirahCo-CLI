@@ -42,7 +42,7 @@ candidate. The final local candidate was installed side by side, its files and
 shortcut targets verified, and both actual running-app window icons matched the
 expected images. Original desktop artwork, existing sessions and unfinished work
 were preserved. These checks do not establish fresh-device or human visual
-acceptance. Public installers and the update feed remain unchanged by this commit.
+acceptance. The r14 Windows assets and signed pilot feed are now published. Earlier packages remain available; no existing sessions are forcibly restarted.
 
 ## Windows API references
 

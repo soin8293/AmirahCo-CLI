@@ -1,6 +1,16 @@
 # Delivering updates
 
-## Current status
+## Current status — November 16, 2026
+
+r14 is public: [Windows EXE, ZIP and checksums](https://github.com/soin8293/AmirahCo-CLI/releases/tag/v1.0.1-pilot.14). The existing pilot feed now offers sequence 14 using the same Ed25519 trust identity and state schema as r8. The same-origin r14 ZIP was fully downloaded and matched its signed size/hash before the feed was published. GitHub asset downloads were also verified in full.
+
+The Hosting release preserves all 152 prior paths except the intended feed replacement and adds only the immutable r14 ZIP and versioned checksums; all existing site configuration is unchanged. Prior releases/packages remain available. No account allowances, router services, billing or active sessions were changed.
+
+Run `/update`, review the offer, choose **Install update on next safe launch**, then close normally and reopen. The updater does not force a running session to restart. r6 and other unconfigured clients need one manual r14 install-over. The installer remains unsigned by Authenticode. Next package changes must use a sequence above 14; do not replace r14 bytes.
+
+The signer remains protected outside Git and packages; an encrypted restricted backup is retained outside application cache. Fresh-device and physical owner UI acceptance remain separate.
+
+## Bootstrap history — November 7, 2026
 
 November 7, 2026: the r8 installer bundles the public Ed25519 verification key and production feed `https://www.amirahco.us/cli-updates/pilot/windows-x64.json`. Its signed ZIP is served directly from `/cli-updates/packages/` on the same origin. The prior r6 candidate has `feed: null` and no trusted keys and needs one manual r8 install-over. r7 is the isolated receiving predecessor, not a public tester release.
 
