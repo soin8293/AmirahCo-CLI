@@ -1,5 +1,14 @@
 @echo off
 setlocal DisableDelayedExpansion
+set "_AMIRAHCO_LAUNCH_NODE=node.exe"
+if exist "%~dp0node.exe" set "_AMIRAHCO_LAUNCH_NODE=%~dp0node.exe"
+if exist "%~dp0windows-terminal-profile.mjs" (
+  "%_AMIRAHCO_LAUNCH_NODE%" "%~dp0windows-terminal-profile.mjs" --launcher "%~f0" -- %*
+  if errorlevel 10 goto native
+  if errorlevel 1 exit /b 1
+  exit /b 0
+)
+:native
 if exist "%~dp0node.exe" (
   "%~dp0node.exe" "%~dp0amirahcocli" %*
 ) else (

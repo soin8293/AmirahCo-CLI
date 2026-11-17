@@ -527,7 +527,7 @@ function TranscriptSearchBar({
   </Box>;
 }
 const TITLE_ANIMATION_FRAMES = ['⠂', '⠐'];
-const TITLE_STATIC_PREFIX = '✳';
+const TITLE_STATIC_PREFIX = '';
 const TITLE_ANIMATION_INTERVAL_MS = 960;
 
 /**
@@ -570,7 +570,7 @@ function AnimatedTerminalTitle(t0) {
   }
   useEffect(t1, t2);
   const prefix = isAnimating ? TITLE_ANIMATION_FRAMES[frame] ?? TITLE_STATIC_PREFIX : TITLE_STATIC_PREFIX;
-  useTerminalTitle(disabled ? null : noPrefix ? title : `${prefix} ${title}`);
+  useTerminalTitle(disabled ? null : noPrefix ? title : `${prefix ? prefix + ' ' : ''}${title}`);
   return null;
 }
 function _temp2(setFrame_0) {

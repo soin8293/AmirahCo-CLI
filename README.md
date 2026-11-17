@@ -80,3 +80,8 @@ See [public PRD](docs/PRD.md), [security policy](SECURITY.md), [capability statu
 ## License and attribution
 
 [LICENSE](LICENSE) preserves the inherited notices. [LICENSE-AMIRAHCO](LICENSE-AMIRAHCO) covers AmirahCo-owned original additions only; it does not relicense third-party or inherited code. See [license scope](LICENSE-SCOPE.md). The open-source publication disposition remains subject to those component boundaries.
+
+
+## Windows window branding (source update)
+
+The Windows launcher now applies the white AmirahCo logo on emerald to a dedicated Terminal window while preserving the original desktop icon. Provider and state environment overrides carry through unchanged. See [window branding and verification](docs/windows-terminal-window-icon.md) for supported launch paths, tests and fallback behavior. This source update does not replace the published r8 installer or activate a new update feed.

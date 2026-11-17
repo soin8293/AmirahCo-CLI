@@ -17,6 +17,7 @@
   "files": [
     "bin/",
     "assets/app-icons/amirahco-cli.ico",
+    "assets/terminal-icons/amirahco-white-on-emerald.ico",
     "assets/update-policy.json",
     "dist/cli.mjs",
     "dist/sdk.mjs",
